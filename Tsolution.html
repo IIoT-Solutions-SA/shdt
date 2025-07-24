@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Solution for Smart Slaughterhouse Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+        .use-case-card {
+            background-color: white;
+            border: 1px solid #e2e8f0; /* border-slate-200 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.07);
+        }
+        .modal-container {
+            background-color: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .kpi-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .solution-visual {
+            background-color: #f1f5f9; /* bg-slate-100 */
+            border: 1px solid #e2e8f0; /* border-slate-200 */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-section {
+            background-color: #f1f5f9;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40 border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-900">Technical Solution</h1>
+                <p class="text-slate-500 text-sm">Smart Monitoring of Slaughterhouse Operations</p>
+            </div>
+            <a href="#contact" class="hidden md:inline-block bg-blue-600 text-white font-semibold py-2 px-5 rounded-full hover:bg-blue-700 transition-colors">Contact Us</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Hero Section -->
+        <section class="hero-section text-slate-800 rounded-xl p-8 md:p-12 mb-12 text-center border border-slate-200">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">A Partnership for a Smarter, Safer Hajj</h2>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-8">Itmam's proposed solution will deliver exceptional value to the Ministry of Environment, Water, and Agriculture. We are committed to full compliance, on-time delivery, technical excellence, and a true partnership.</p>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="bg-white border border-slate-200 rounded-xl p-8 mb-12">
+            <h3 class="text-3xl font-bold text-slate-900 mb-4 text-center">Download Technical Proposal Slides</h3>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto">Access the complete presentation decks for the technical proposal in both English and Arabic.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="deck_english_v3" download class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Download English</span>
+                </a>
+                <a href="deck_arabic_v3" download class="bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Download Arabic</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- The Challenge -->
+        <section class="bg-white border border-slate-200 rounded-xl p-8 mb-12">
+            <h3 class="text-3xl font-bold text-slate-900 mb-4">The Challenge</h3>
+            <p class="text-slate-600 leading-relaxed">The Ministry of Environment, Water, and Agriculture seeks to develop and improve the current monitoring system for slaughterhouses, with a critical focus on the Hajj season. The core objectives are to improve efficiency, ensure compliance with health and Islamic standards, leverage advanced AI technology, and enhance the overall experience for all beneficiaries.</p>
+        </section>
+
+        <!-- Our Methodology Section -->
+        <section id="methodology" class="bg-white border border-slate-200 rounded-xl p-8 mb-12">
+            <h3 class="text-3xl font-bold text-slate-900 mb-8 text-center">Our Methodology</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- AI Development Methodology -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 text-blue-600 p-2 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800">AI Development</h4>
+                    </div>
+                    <ul class="space-y-3 text-slate-600 text-sm">
+                        <li class="flex"><strong class="w-32 shrink-0">Data Foundation:</strong> We begin by ingesting and cataloging the 10+ TB of video and image data provided by the Ministry.</li>
+                        <li class="flex"><strong class="w-32 shrink-0">Expert-Led Annotation:</strong> Our specialists work directly with MEWA's veterinarians and officers in a "human-in-the-loop" process to meticulously annotate the data, ensuring our AI learns from true subject matter experts.</li>
+                        <li class="flex"><strong class="w-32 shrink-0">Strategic Data Split:</strong> To ensure robust and unbiased performance, the dataset is strategically partitioned: 70% for Training, 20% for Validation, and 10% for Testing.</li>
+                    </ul>
+                </div>
+                <!-- Project Management Methodology -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                     <div class="flex items-center mb-4">
+                        <div class="bg-green-100 text-green-600 p-2 rounded-full mr-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800">Project Management</h4>
+                    </div>
+                     <ul class="space-y-3 text-slate-600 text-sm">
+                        <li class="flex"><strong class="w-32 shrink-0">Hybrid Approach:</strong> We employ a hybrid model that combines structural integrity with flexibility to ensure robust and timely delivery.</li>
+                        <li class="flex"><strong class="w-32 shrink-0">Waterfall for Core:</strong> The main project phases (Planning, Development, Launch, Operation) follow a structured, sequential Waterfall process for foundational stability.</li>
+                        <li class="flex"><strong class="w-32 shrink-0">Agile for Use Cases:</strong> The implementation of the 40+ AI use cases is managed using an Agile framework, allowing for iterative development and continuous feedback from Ministry stakeholders.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Architecture & Tech Stack Section -->
+        <section id="architecture" class="bg-white border border-slate-200 rounded-xl p-8 mb-12">
+            <h3 class="text-3xl font-bold text-slate-900 mb-8 text-center">System Architecture & Technology Stack</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- System Architecture -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 text-purple-600 p-2 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800">System Architecture</h4>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">Our solution adheres to the mandated hybrid Edge-Cloud architecture and includes a recommendation for a more advanced, scalable model.</p>
+                    <div class="space-y-3">
+                        <button onclick="openArchitectureModal('rest')" class="w-full text-left bg-white p-3 rounded-md border border-slate-300 hover:border-blue-500 hover:bg-blue-50 transition-colors flex justify-between items-center">
+                            <span class="font-semibold text-slate-700">Mandated REST API Model</span>
+                            <span class="text-blue-600 font-bold">&rarr;</span>
+                        </button>
+                        <button onclick="openArchitectureModal('uns')" class="w-full text-left bg-white p-3 rounded-md border border-slate-300 hover:border-green-500 hover:bg-green-50 transition-colors flex justify-between items-center">
+                            <span class="font-semibold text-slate-700">Recommended UNS Model</span>
+                             <span class="text-green-600 font-bold">&rarr;</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Technology Stack -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                     <div class="flex items-center mb-4">
+                        <div class="bg-sky-100 text-sky-600 p-2 rounded-full mr-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800">Technology Stack</h4>
+                    </div>
+                     <p class="text-sm text-slate-600 mb-4">We use a modern, reliable, and secure technology stack with no closed-source libraries.</p>
+                     <ul class="space-y-2 text-slate-600 text-sm">
+                        <li class="flex items-center"><strong class="w-40 shrink-0 text-slate-700">Front-End:</strong> React & Deck.gl</li>
+                        <li class="flex items-center"><strong class="w-40 shrink-0 text-slate-700">Back-End:</strong> Python (FastAPI)</li>
+                        <li class="flex items-center"><strong class="w-40 shrink-0 text-slate-700">AI Development:</strong> PyTorch & TensorFlow</li>
+                        <li class="flex items-center"><strong class="w-40 shrink-0 text-slate-700">Database:</strong> PostgreSQL & TimeScaleDB</li>
+                        <li class="flex items-center"><strong class="w-40 shrink-0 text-slate-700">Deployment:</strong> Docker & Kubernetes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Use Cases Section -->
+        <section id="use-cases" class="mb-12">
+            <h3 class="text-3xl font-bold text-slate-900 mb-8 text-center">Interactive AI Use Cases</h3>
+            <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">Our solution is comprised of numerous interconnected AI-powered modules. Click on any use case below to see a visual representation of how it works.</p>
+            
+            <div id="use-case-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Grid items will be injected here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Proven Experience Section -->
+        <section id="case-studies" class="bg-white border border-slate-200 rounded-xl p-8 mb-12">
+            <h3 class="text-3xl font-bold text-slate-900 mb-8 text-center">Proven Experience</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Case Study 1 -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">KACST Smart Gate Sentry</h4>
+                    <p class="text-slate-600 text-sm mb-4">Deployed an advanced AI video analytics system for automated security monitoring. The system leverages YOLOv8 and ByteTrack to detect, track, and count individuals in real-time.</p>
+                    <strong class="text-sm text-slate-800">Key Outcomes:</strong>
+                    <ul class="mt-2 space-y-2 text-sm text-slate-600 list-disc list-inside">
+                        <li>Enhanced security with an indisputable 24/7 event log.</li>
+                        <li>Provided actionable data for facility usage and optimization.</li>
+                        <li>Drastically reduced incident review time.</li>
+                    </ul>
+                </div>
+                <!-- Case Study 2 -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h4 class="text-xl font-bold text-slate-800 mb-2">KACST Plant AI Assistant</h4>
+                    <p class="text-slate-600 text-sm mb-4">Developed a specialized knowledge discovery platform to transform technical manuals into an interactive knowledge base using advanced RAG techniques.</p>
+                     <strong class="text-sm text-slate-800">Key Outcomes:</strong>
+                    <ul class="mt-2 space-y-2 text-sm text-slate-600 list-disc list-inside">
+                        <li>Accelerated troubleshooting and reduced equipment downtime.</li>
+                        <li>Enhanced knowledge transfer for junior technicians.</li>
+                        <li>Preserved and centralized critical institutional knowledge.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Plan & Team Section -->
+        <section id="plan" class="bg-white border border-slate-200 rounded-xl p-8 mb-12">
+            <h3 class="text-3xl font-bold text-slate-900 mb-8 text-center">Project Plan & Team</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project Timeline -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h4 class="text-xl font-bold text-slate-800 mb-4">Project Timeline (24 Months)</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><span class="bg-blue-500 text-white text-xs font-bold mr-3 px-2 py-1 rounded-full">4 Wk</span> Platform Planning & Design</li>
+                        <li class="flex items-center"><span class="bg-blue-500 text-white text-xs font-bold mr-3 px-2 py-1 rounded-full">8 Wk</span> Platform Development & Testing</li>
+                        <li class="flex items-center"><span class="bg-blue-500 text-white text-xs font-bold mr-3 px-2 py-1 rounded-full">36 Wk</span> AI Models Implementation</li>
+                        <li class="flex items-center"><span class="bg-blue-500 text-white text-xs font-bold mr-3 px-2 py-1 rounded-full">4 Wk</span> Launch Phase</li>
+                        <li class="flex items-center"><span class="bg-blue-500 text-white text-xs font-bold mr-3 px-2 py-1 rounded-full">52 Wk</span> Operation & Technical Support</li>
+                    </ul>
+                </div>
+                <!-- Key Personnel -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                     <h4 class="text-xl font-bold text-slate-800 mb-4">Key Personnel</h4>
+                     <p class="text-sm text-slate-600 mb-4">A dedicated team of certified professionals will be assigned, meeting all RFP requirements.</p>
+                     <div class="flex flex-wrap gap-2">
+                        <span class="kpi-badge bg-slate-200 text-slate-800">IT Project Manager</span>
+                        <span class="kpi-badge bg-slate-200 text-slate-800">Business Consulting Specialist</span>
+                        <span class="kpi-badge bg-slate-200 text-slate-800">Technical Architect</span>
+                        <span class="kpi-badge bg-slate-200 text-slate-800">AI Engineer</span>
+                        <span class="kpi-badge bg-slate-200 text-slate-800">Backend & Frontend Developer</span>
+                        <span class="kpi-badge bg-slate-200 text-slate-800">Quality Assurance Lead</span>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-white border-t border-slate-200 mt-12">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Itmam</h3>
+            <p class="text-slate-500">For any inquiries regarding this proposal, please contact us.</p>
+            <p class="text-blue-600 font-semibold mt-2">Email: contact@itmam.com | Phone: +966 11 123 4567</p>
+        </div>
+    </footer>
+    
+    <!-- Modals (Use Case and Architecture) -->
+    <div id="modal" class="modal-container fixed inset-0 flex items-center justify-center p-4 hidden z-50">
+        <div id="modal-content" class="bg-white rounded-lg max-w-3xl w-full border border-slate-200 shadow-2xl transform transition-all opacity-0 scale-95">
+            <!-- Content will be injected by JS -->
+        </div>
+    </div>
+
+
+    <script>
+        const useCases = [
+            {
+                title: "Automated Livestock Counting & Classification",
+                description: "To accurately monitor and classify livestock in real-time.",
+                howItWorks: "A YOLOv8 model on the Edge device will perform initial counting and classification (sheep, camel). Structured metadata will be streamed to the central server for real-time dashboard updates and daily report generation.",
+                kpis: ["KPI: Counting Accuracy > 95%", "KPI: Classification Accuracy > 95%"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><path d="M10 50 L40 50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"></path><path d="M35 45 L40 50 L35 55" fill="none" stroke="#94a3b8" stroke-width="1"></path><text x="5" y="40" font-size="8" fill="#64748b">Camera</text><rect x="0" y="45" width="20" height="10" fill="#cbd5e1" rx="2"></rect><text x="70" y="30" font-size="8" fill="#64748b">Edge AI</text><rect x="60" y="35" width="40" height="30" fill="#e2e8f0" rx="2"></rect><text x="65" y="52" font-size="8" fill="#334155">YOLOv8</text><path d="M100 50 L130 50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"></path><path d="M125 45 L130 50 L125 55" fill="none" stroke="#94a3b8" stroke-width="1"></path><text x="150" y="20" font-size="8" fill="#64748b">Server</text><rect x="140" y="25" width="50" height="50" fill="#e2e8f0" rx="2"></rect><text x="145" y="40" font-size="8" fill="#334155">Dashboard</text><text x="145" y="60" font-size="8" fill="#334155">Reports</text><text x="220" y="40" font-size="10" fill="#0ea5e9">Sheep: 12</text><text x="220" y="60" font-size="10" fill="#f97316">Camel: 3</text></g></svg>`
+            },
+            {
+                title: "Gender Identification",
+                description: "To accurately determine the gender of livestock.",
+                howItWorks: "A high-resolution frame will be sent to the central server, where an image segmentation model (SAM2) isolates the animal and a classification model (ResNet) analyzes it to determine gender.",
+                kpis: ["KPI: Accuracy > 92%", "KPI: Processing Time < 2s"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><circle cx="50" cy="50" r="20" fill="#f1f5f9" stroke="#94a3b8"></circle><text x="45" y="55" font-size="12">🐑</text><path d="M70 50 L100 50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"></path><path d="M95 45 L100 50 L95 55" fill="none" stroke="#94a3b8" stroke-width="1"></path><rect x="100" y="35" width="80" height="30" fill="#e2e8f0" rx="2"></rect><text x="105" y="52" font-size="8" fill="#334155">SAM2 + ResNet</text><path d="M180 50 L210 50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"></path><path d="M205 45 L210 50 L205 55" fill="none" stroke="#94a3b8" stroke-width="1"></path><text x="230" y="45" font-size="14" fill="#2563eb">♂</text><text x="230" y="65" font-size="14" fill="#db2777">♀</text><text x="115" y="30" font-size="8" fill="#64748b">Server Analysis</text></g></svg>`
+            },
+            {
+                title: "Disease Detection",
+                description: "To monitor for indicators of diseases in animals.",
+                howItWorks: "Two models will run in parallel on the central server: a behavioral model for gait analysis (tracking movement patterns) and a texture analysis model for lesion detection on the animal's surface. Anomalies trigger a 'Health Flag' for veterinary review.",
+                kpis: ["KPI: Detection Rate > 90%", "KPI: Real-time Alert Generation"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><circle cx="50" cy="50" r="20" fill="#f1f5f9" stroke="#94a3b8"></circle><text x="45" y="55" font-size="12">🐫</text><path d="M70 50 L100 50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"></path><path d="M95 45 L100 50 L95 55" fill="none" stroke="#94a3b8" stroke-width="1"></path><rect x="100" y="20" width="80" height="60" fill="#e2e8f0" rx="2"></rect><text x="105" y="40" font-size="8" fill="#334155">Gait Analysis</text><text x="105" y="65" font-size="8" fill="#334155">Texture Analysis</text><path d="M180 50 L210 50" stroke="#ef4444" stroke-width="1.5"></path><path d="M205 45 L210 50 L205 55" fill="none" stroke="#ef4444" stroke-width="1.5"></path><rect x="210" y="40" width="60" height="20" fill="#fee2e2" rx="2"></rect><text x="215" y="52" font-size="8" fill="#b91c1c">Health Flag!</text></g></svg>`
+            },
+            {
+                title: "Slaughtering Process Verification",
+                description: "To verify operations meet health and religious requirements.",
+                howItWorks: "Pose estimation on the Edge device tracks worker movements. An Action Recognition model (3D ConvNet) on the server analyzes the sequence of actions to verify a 'compliant slaughter' and alerts on deviations.",
+                kpis: ["KPI: Compliance Detection > 98%", "KPI: Real-time Alerts for Non-Compliance"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="20" y="55" font-size="12">🧍</text><path d="M50 50 L80 50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"></path><rect x="80" y="35" width="100" height="30" fill="#e2e8f0" rx="2"></rect><text x="85" y="52" font-size="8" fill="#334155">Action Recognition</text><path d="M180 35 L210 35" stroke="#16a34a" stroke-width="1.5"></path><text x="215" y="38" font-size="8" fill="#15803d">Compliant ✅</text><path d="M180 65 L210 65" stroke="#ef4444" stroke-width="1.5"></path><text x="215" y="68" font-size="8" fill="#b91c1c">Violation ❌</text></g></svg>`
+            },
+            {
+                title: "Veterinary Inspection Monitoring",
+                description: "To confirm that veterinary inspections are carried out.",
+                howItWorks: "An Action Recognition model identifies 'veterinary inspection' events. A tracking algorithm (ByteTrack) ensures every carcass passes through a confirmed inspection event, flagging any that are missed.",
+                kpis: ["KPI: 100% Detection of Missed Inspections", "KPI: Accurate Logging of Inspection Durations"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="20" y="55" font-size="12">🥩</text><path d="M50 50 L250 50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"></path><rect x="120" y="35" width="60" height="30" fill="#e2e8f0" rx="2"></rect><text x="125" y="52" font-size="8" fill="#334155">Inspection</text><text x="123" y="30" font-size="8" fill="#64748b">👨‍⚕️</text><text x="260" y="55" font-size="8" fill="#b91c1c">Missed!</text><line x1="255" y1="45" x2="275" y2="65" stroke="#ef4444" stroke-width="1.5"/><line x1="255" y1="65" x2="275" y2="45" stroke="#ef4444" stroke-width="1.5"/></g></svg>`
+            },
+            {
+                title: "Carcass Handling & Condemnation",
+                description: "To monitor carcass delivery and condemnation.",
+                howItWorks: "A 'state machine' logic maps the valid location transitions for carcasses. The system uses Object Detection and Tracking to ensure carcasses follow the correct path and triggers alerts for deviations.",
+                kpis: ["KPI: 100% Detection of Unauthorized Movements", "KPI: Accurate Dwell Time Monitoring"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="20" y="55" font-size="12">🥩</text><path d="M40 50 L100 30" stroke="#16a34a" stroke-width="1.5"></path><text x="105" y="33" font-size="8" fill="#15803d">Approved Path</text><path d="M40 50 L100 70" stroke="#ef4444" stroke-width="1.5"></path><text x="105" y="73" font-size="8" fill="#b91c1c">Unauthorized Path</text><rect x="180" y="40" width="90" height="20" fill="#fee2e2" rx="2"></rect><text x="185" y="52" font-size="8" fill="#b91c1c">Alert: Path Deviation</text></g></svg>`
+            },
+            {
+                title: "Waste Disposal Tracking",
+                description: "To track the workflow of waste disposal.",
+                howItWorks: "Similar to carcass handling, a state machine defines the valid workflow for waste bins. The system will monitor for path deviations or excessive dwell times, indicating bottlenecks or improper procedures.",
+                kpis: ["KPI: Process Adherence > 99%", "KPI: Real-time Alerts for Bottlenecks"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="20" y="55" font-size="12">🗑️</text><path d="M40 50 q 50 -40 100 0" stroke="#16a34a" stroke-width="1.5" fill="none"></path><text x="70" y="30" font-size="8" fill="#15803d">Correct Route</text><path d="M40 50 q 50 40 100 0" stroke="#ef4444" stroke-width="1.5" fill="none"></path><text x="70" y="80" font-size="8" fill="#b91c1c">Incorrect Route</text><rect x="180" y="40" width="90" height="20" fill="#fef9c3" rx="2"></rect><text x="185" y="52" font-size="8" fill="#a16207">Alert: Bottleneck</text></g></svg>`
+            },
+            {
+                title: "Animal Welfare Monitoring",
+                description: "To ensure the application of animal welfare rules.",
+                howItWorks: "An Action Recognition model (3D ConvNet) is trained to identify gestures classified as 'improper handling,' such as high-velocity striking motions or the use of tools in restricted areas, triggering immediate alerts.",
+                kpis: ["KPI: Violation Detection > 95%", "KPI: Immediate, High-Priority Alerts"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="50" y="55" font-size="12">🧍</text><text x="100" y="55" font-size="12">🐑</text><path d="M70 50 L95 50" stroke="#ef4444" stroke-width="2"></path><text x="150" y="55" font-size="8" fill="#b91c1c">Improper Handling Detected!</text></g></svg>`
+            },
+            {
+                title: "Work Attire Compliance",
+                description: "To verify compliance with official work uniform.",
+                howItWorks: "A computer vision model will be trained to recognize the official work uniform. A rules engine will check if a person detected in a work zone is compliant and flag any violations.",
+                kpis: ["KPI: Compliance Rate > 99%", "KPI: Detection Accuracy > 97%"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="50" y="60" font-size="12">👷</text><text x="100" y="40" font-size="10" fill="#16a34a">Helmet ✅</text><text x="100" y="60" font-size="10" fill="#16a34a">Vest ✅</text><text x="100" y="80" font-size="10" fill="#ef4444">Gloves ❌</text></g></svg>`
+            },
+            {
+                title: "Task Completion Time Analysis",
+                description: "To analyze task execution time to evaluate efficiency.",
+                howItWorks: "An Action Recognition model will identify the 'start' and 'end' of key tasks (e.g., 'start cleaning,' 'finish cleaning') to log the total time taken. This data will be aggregated for management reports on performance trends.",
+                kpis: ["KPI: Accurate Time Logging > 95% of Tasks", "KPI: Weekly Performance Trend Reports"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="20" y="55" font-size="12">⏱️</text><path d="M40 50 L70 50" stroke="#94a3b8" stroke-width="1"></path><text x="75" y="55" font-size="10">Task Start</text><path d="M150 50 L180 50" stroke="#94a3b8" stroke-width="1"></path><text x="185" y="55" font-size="10">Task End</text><rect x="250" y="40" width="40" height="20" fill="#dbeafe" rx="2"></rect><text x="255" y="53" font-size="8" fill="#1e40af">7 min</text></g></svg>`
+            },
+            {
+                title: "PPE Usage Monitoring",
+                description: "To monitor workers for required Personal Protective Equipment.",
+                howItWorks: "An object detection model (YOLOv8) on the Edge device identifies persons and required gear (e.g., helmet, mask). A rules engine on the central server checks for compliance based on the worker's specific zone.",
+                kpis: ["KPI: Detection Rate > 98% (Non-Compliance)", "KPI: False Alert Rate < 2%"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="50" y="60" font-size="12"> ZONE A</text><rect x="40" y="40" width="60" height="30" fill="none" stroke="#fbbf24" stroke-dasharray="2 2"></rect><text x="120" y="60" font-size="12">👷</text><text x="140" y="50" font-size="8" fill="#b91c1c">No Mask!</text><rect x="180" y="45" width="90" height="20" fill="#fee2e2" rx="2"></rect><text x="185" y="58" font-size="8" fill="#b91c1c">Alert: PPE Violation</text></g></svg>`
+            },
+            {
+                title: "Smoking Violation Detection",
+                description: "To detect and report smoking in non-designated areas.",
+                howItWorks: "A two-factor confirmation process will be used: 1) object detection of a cigarette and 2) gesture recognition of the hand-to-mouth smoking motion. A confirmed violation will trigger an alert with the location.",
+                kpis: ["KPI: Detection Accuracy > 99%", "KPI: Weekly Heat Maps of Violations"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="50" y="55" font-size="12">🚬</text><text x="80" y="55" font-size="12">➕</text><text x="110" y="55" font-size="12">🙆‍♂️</text><path d="M140 50 L170 50" stroke="#94a3b8" stroke-width="1"></path><rect x="170" y="40" width="100" height="20" fill="#fee2e2" rx="2"></rect><text x="175" y="53" font-size="8" fill="#b91c1c">Smoking Violation!</text></g></svg>`
+            },
+            {
+                title: "Water & Energy Consumption Analysis",
+                description: "To analyze consumption patterns to detect waste.",
+                howItWorks: "An anomaly detection model (LSTM) will be trained on historical data from smart meters to flag any significant deviation from expected consumption, indicating a potential leak or equipment malfunction.",
+                kpis: ["KPI: Detect Deviations > 3 Std Dev", "KPI: Quantify Resource Savings"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><path d="M20 80 L80 40 L140 60 L200 70 L260 30" stroke="#3b82f6" stroke-width="2" fill="none"></path><circle cx="260" cy="30" r="4" fill="#ef4444"></circle><text x="200" y="25" font-size="8" fill="#b91c1c">Anomaly Detected</text></g></svg>`
+            },
+            {
+                title: "Vehicle License Plate OCR",
+                description: "To automatically manage and log vehicle entry and exit.",
+                howItWorks: "An object detection model will find the license plate, and an Optical Character Recognition (OCR) model will read the text. The result will be checked against a database of authorized vehicles for automated logging and access control.",
+                kpis: ["KPI: OCR Accuracy > 95%", "KPI: Report Avg. Truck Turnaround Times"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="20" y="60" font-size="24">🚚</text><rect x="80" y="45" width="60" height="20" fill="#e2e8f0" rx="2"></rect><text x="85" y="58" font-size="8">ABC 123</text><path d="M140 55 L170 55" stroke="#94a3b8" stroke-width="1"></path><text x="175" y="45" font-size="8" fill="#15803d">Authorized ✅</text><text x="175" y="65" font-size="8" fill="#b91c1c">Unauthorized ❌</text></g></svg>`
+            },
+            {
+                title: "Crowd & Assembly Monitoring",
+                description: "To prevent overcrowding and ensure safety.",
+                howItWorks: "The Edge device will run a real-time person detection model, maintaining a constant count within predefined zones. It will send an alert to the central system when a capacity threshold is exceeded.",
+                kpis: ["KPI: Counting Accuracy > 95%", "KPI: Alert Latency < 1s"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><rect x="20" y="20" width="100" height="60" fill="none" stroke="#fbbf24" stroke-dasharray="2 2"></rect><text x="50" y="15" font-size="8">Zone A</text><text x="30" y="50" font-size="10">👥 95/100</text><text x="30" y="70" font-size="10" fill="#f97316">95% Capacity</text><rect x="150" y="40" width="120" height="20" fill="#fef9c3" rx="2"></rect><text x="155" y="53" font-size="8" fill="#a16207">Alert: High Crowd Density</text></g></svg>`
+            },
+            {
+                title: "Aggressive Activity Detection",
+                description: "To detect aggressive behavior and enable corrective actions.",
+                howItWorks: "An Action Recognition model will analyze skeletal data from pose estimation to classify aggressive behaviors like 'fighting' based on rapid, erratic movements, triggering an automated security alert.",
+                kpis: ["KPI: Detection Accuracy > 90%", "KPI: Automated Security Dispatch"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="50" y="55" font-size="12">🧍</text><text x="100" y="55" font-size="12">🧍</text><path d="M70 40 L80 60 L90 40 L100 60" stroke="#ef4444" stroke-width="1.5"></path><rect x="150" y="40" width="120" height="20" fill="#fee2e2" rx="2"></rect><text x="155" y="53" font-size="8" fill="#b91c1c">Alert: Aggression Detected</text></g></svg>`
+            },
+            {
+                title: "Conflict Detection",
+                description: "To detect disputes and take immediate action.",
+                howItWorks: "An Action Recognition model will analyze pose data for more subtle indicators of conflict, such as 'threatening posture' or aggressive gestures, to allow for proactive intervention before a situation escalates.",
+                kpis: ["KPI: Identify Potential Conflicts Early", "KPI: Generate Stress Hotspot Reports"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="50" y="55" font-size="12">🧍</text><text x="100" y="55" font-size="12">🧍</text><text x="75" y="40" font-size="14" fill="#f59e0b">⁉️</text><rect x="150" y="40" width="120" height="20" fill="#fef9c3" rx="2"></rect><text x="155" y="53" font-size="8" fill="#a16207">Alert: Potential Conflict</text></g></svg>`
+            },
+            {
+                title: "Customer Satisfaction Analysis",
+                description: "To measure customer satisfaction with a focus on privacy.",
+                howItWorks: "A Facial Emotion Recognition (FER) model will run entirely on the Edge device. The image will be instantly discarded, and only anonymous, aggregated data (e.g., 'happy,' 'neutral') will be sent to the central server for trend analysis.",
+                kpis: ["KPI: 100% On-Edge Processing & Discard", "KPI: Real-time Satisfaction Dashboard"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="50" y="55" font-size="14">😊</text><text x="100" y="55" font-size="14">😐</text><text x="150" y="55" font-size="14">😠</text><path d="M180 50 L210 50" stroke="#94a3b8" stroke-width="1"></path><rect x="210" y="25" width="60" height="50" fill="#e2e8f0" rx="2"></rect><text x="215" y="45" font-size="8">Happy: 75%</text><text x="215" y="65" font-size="8">Other: 25%</text></g></svg>`
+            },
+            {
+                title: "Wait Time Monitoring",
+                description: "To monitor workflow and reduce waiting times.",
+                howItWorks: "An object tracking model will run entirely on the Edge device to anonymously track a person's journey through a queue. Only the final duration number (e.g., '345 seconds') will be sent to the server. No PII is ever stored or transmitted.",
+                kpis: ["KPI: 100% Anonymous Tracking", "KPI: Real-time High Wait Time Alerts"],
+                visual: `<svg viewBox="0 0 300 100" class="w-full h-full"><g><text x="20" y="55" font-size="10">Start</text><path d="M50 50 L200 50" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2"></path><text x="205" y="55" font-size="10">End</text><text x="115" y="40" font-size="12">🚶</text><text x="110" y="70" font-size="10">⏱️ 15 min</text></g></svg>`
+            }
+        ];
+
+        const grid = document.getElementById('use-case-grid');
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+
+        // Populate the grid
+        useCases.forEach((useCase, index) => {
+            const card = document.createElement('div');
+            card.className = 'use-case-card rounded-xl p-6 flex flex-col justify-between';
+            card.onclick = () => openUseCaseModal(index);
+            
+            card.innerHTML = `
+                <div>
+                    <h4 class="text-lg font-bold text-slate-800 mb-2">${index + 1}. ${useCase.title}</h4>
+                    <p class="text-sm text-slate-500">${useCase.description}</p>
+                </div>
+                <div class="text-right mt-4">
+                    <span class="text-sm font-semibold text-blue-600">View Details &rarr;</span>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        function openUseCaseModal(index) {
+            const useCase = useCases[index];
+            
+            const content = `
+                <div class="p-6 border-b border-slate-200 flex justify-between items-start">
+                    <div>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-1">${index + 1}. ${useCase.title}</h4>
+                        <p class="text-slate-500">${useCase.description}</p>
+                    </div>
+                    <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-3xl">&times;</button>
+                </div>
+                <div class="p-6">
+                    <h5 class="font-semibold text-slate-800 mb-3">Visual Solution:</h5>
+                    <div class="solution-visual mb-6">${useCase.visual}</div>
+                    <h5 class="font-semibold text-slate-800 mb-3">How It Works:</h5>
+                    <p class="text-sm text-slate-600 mb-6">${useCase.howItWorks}</p>
+                    <h5 class="font-semibold text-slate-800 mb-3">Key Performance Indicators (KPIs):</h5>
+                    <div class="flex flex-wrap gap-2">
+                        ${useCase.kpis.map(kpi => {
+                            let colorClasses = 'bg-blue-100 text-blue-800';
+                            if (kpi.toLowerCase().includes('accuracy') || kpi.toLowerCase().includes('detection')) {
+                                colorClasses = 'bg-green-100 text-green-800';
+                            } else if (kpi.toLowerCase().includes('alert') || kpi.toLowerCase().includes('violation')) {
+                                colorClasses = 'bg-red-100 text-red-800';
+                            }
+                            return `<span class="kpi-badge ${colorClasses}">${kpi}</span>`;
+                        }).join('')}
+                    </div>
+                </div>
+                <div class="p-4 bg-slate-50 border-t border-slate-200 text-right">
+                     <button onclick="closeModal()" class="bg-slate-600 text-white font-semibold py-2 px-5 rounded-md hover:bg-slate-700 transition-colors">Close</button>
+                </div>
+            `;
+            
+            modalContent.innerHTML = content;
+            showModal();
+        }
+
+        function openArchitectureModal(type) {
+            const data = {
+                rest: {
+                    title: "Mandated REST API Model",
+                    description: "This architecture uses point-to-point HTTP requests for communication between Edge devices and the central server. Edge devices send structured metadata and relevant image frames for central processing.",
+                    visual: `<svg viewBox="0 0 400 200" class="w-full h-full"><defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" /></marker></defs><rect x="1" y="1" width="148" height="198" rx="5" fill="none" stroke="#94a3b8" stroke-dasharray="4 4" /><text x="50" y="20" font-size="10" font-weight="bold" fill="#334155">Edge / Branch</text><rect x="20" y="40" width="30" height="20" rx="2" fill="#cbd5e1" /><text x="25" y="53" font-size="8">CAM</text><rect x="20" y="70" width="30" height="20" rx="2" fill="#cbd5e1" /><text x="25" y="83" font-size="8">CAM</text><rect x="20" y="100" width="30" height="20" rx="2" fill="#cbd5e1" /><text x="25" y="113" font-size="8">CAM</text><rect x="80" y="70" width="50" height="60" rx="2" fill="#e2e8f0" /><text x="88" y="95" font-size="9" fill="#334155">Edge Device</text><text x="98" y="110" font-size="8" fill="#334155">(Processing)</text><path d="M50 50 L80 80" stroke="#94a3b8" marker-end="url(#arrow)" /><path d="M50 80 L80 90" stroke="#94a3b8" marker-end="url(#arrow)" /><path d="M50 110 L80 100" stroke="#94a3b8" marker-end="url(#arrow)" /><path d="M130 100 L250 100" stroke="#3b82f6" marker-end="url(#arrow)" stroke-width="1.5" /><text x="160" y="95" font-size="9" fill="#3b82f6">REST API Call</text><rect x="249" y="1" width="150" height="198" rx="5" fill="none" stroke="#94a3b8" stroke-dasharray="4 4" /><text x="280" y="20" font-size="10" font-weight="bold" fill="#334155">Data Center / Cloud</text><rect x="270" y="40" width="50" height="40" rx="2" fill="#e2e8f0" /><text x="280" y="60" font-size="9" fill="#334155">GPU VMs</text><rect x="330" y="40" width="50" height="40" rx="2" fill="#e2e8f0" /><text x="340" y="60" font-size="9" fill="#334155">FE APP</text><rect x="270" y="140" width="110" height="40" rx="2" fill="#e2e8f0" /><text x="305" y="160" font-size="9" fill="#334155">SQL DB</text><path d="M295 80 L295 140" stroke="#94a3b8" marker-end="url(#arrow)" /><path d="M355 80 L355 150 L320 150" stroke="#94a3b8" marker-end="url(#arrow)" fill="none" /><path d="M330 60 L320 60" stroke="#94a3b8" marker-end="url(#arrow)" fill="none" /></svg>`
+                },
+                uns: {
+                    title: "Recommended UNS Model",
+                    description: "The Unified Namespace (UNS) architecture uses a central hub (MQTT Broker) for decoupled communication. This is more efficient at scale, provides a single source of truth, and enhances real-time speed.",
+                    visual: `<svg viewBox="0 0 400 200" class="w-full h-full"><defs><marker id="arrowGreen" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a" /></marker></defs><text x="25" y="20" font-size="10" font-weight="bold" fill="#334155">Edge Devices</text><rect x="20" y="40" width="60" height="30" rx="2" fill="#e2e8f0" /><text x="28" y="58" font-size="9">Device 1</text><rect x="20" y="85" width="60" height="30" rx="2" fill="#e2e8f0" /><text x="28" y="103" font-size="9">Device 2</text><rect x="20" y="130" width="60" height="30" rx="2" fill="#e2e8f0" /><text x="28" y="148" font-size="9">Device ...</text><rect x="150" y="70" width="100" height="60" rx="30" fill="#dcfce7" stroke="#16a34a" /><text x="165" y="95" font-size="9" font-weight="bold" fill="#15803d">MQTT Broker</text><text x="160" y="110" font-size="8" fill="#15803d">(Unified Namespace)</text><path d="M80 55 L150 85" stroke="#16a34a" marker-end="url(#arrowGreen)" /><text x="90" y="65" font-size="8" fill="#16a34a">Publish</text><path d="M80 100 L150 100" stroke="#16a34a" marker-end="url(#arrowGreen)" /><path d="M80 145 L150 115" stroke="#16a34a" marker-end="url(#arrowGreen)" /><text x="290" y="20" font-size="10" font-weight="bold" fill="#334155">Data Center Services</text><rect x="290" y="40" width="90" height="30" rx="2" fill="#e2e8f0" /><text x="300" y="58" font-size="9">GPU VMs</text><rect x="290" y="85" width="90" height="30" rx="2" fill="#e2e8f0" /><text x="310" y="103" font-size="9">FE App</text><rect x="290" y="130" width="90" height="30" rx="2" fill="#e2e8f0" /><text x="315" y="148" font-size="9">SQL DB</text><path d="M250 90 L290 55" stroke="#16a34a" marker-end="url(#arrowGreen)" /><text x="250" y="65" font-size="8" fill="#16a34a">Subscribe</text><path d="M250 100 L290 100" stroke="#16a34a" marker-end="url(#arrowGreen)" /><path d="M250 110 L290 145" stroke="#16a34a" marker-end="url(#arrowGreen)" /></svg>`
+                }
+            };
+            const item = data[type];
+            const content = `
+                 <div class="p-6 border-b border-slate-200 flex justify-between items-start">
+                    <div>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-1">${item.title}</h4>
+                    </div>
+                    <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-3xl">&times;</button>
+                </div>
+                <div class="p-6">
+                    <div class="solution-visual mb-6">${item.visual}</div>
+                    <p class="text-slate-600">${item.description}</p>
+                </div>
+                <div class="p-4 bg-slate-50 border-t border-slate-200 text-right">
+                     <button onclick="closeModal()" class="bg-slate-600 text-white font-semibold py-2 px-5 rounded-md hover:bg-slate-700 transition-colors">Close</button>
+                </div>
+            `;
+            modalContent.innerHTML = content;
+            showModal();
+        }
+
+        function showModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('opacity-0', 'scale-95');
+                modalContent.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalContent.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Escape") closeModal();
+        });
+        
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) closeModal();
+        });
+    </script>
+
+</body>
+</html>
