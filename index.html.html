@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFP Submission Checklist: Smart Slaughterhouse Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+            transform: translateY(-2px);
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+        .custom-checkbox {
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            margin-top: 0.25rem;
+            font: inherit;
+            color: currentColor;
+            width: 1.25em;
+            height: 1.25em;
+            border: 0.15em solid #cbd5e1;
+            border-radius: 0.25em;
+            transform: translateY(-0.075em);
+            display: grid;
+            place-content: center;
+            flex-shrink: 0;
+        }
+        .custom-checkbox::before {
+            content: "";
+            width: 0.75em;
+            height: 0.75em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #059669;
+            transform-origin: bottom left;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+        .custom-checkbox:checked::before {
+            transform: scale(1);
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 1.5rem;
+            overflow: hidden;
+        }
+        .progress-bar {
+            background-color: #10b981;
+            height: 100%;
+            width: 0;
+            border-radius: 9999px;
+            transition: width 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        .note {
+            background-color: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+        .points {
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+            padding: 0.125rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="text-gray-800 p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900">RFP Submission Checklist</h1>
+            <p class="mt-2 text-lg text-gray-600">Implementation of AI for Smart Monitoring of Slaughterhouse Operations during Hajj</p>
+            <div class="mt-4 inline-flex items-center gap-4 bg-gray-100 p-3 rounded-full">
+                <span class="font-semibold text-gray-700">Competition No: 220325061704</span>
+                <span class="w-px h-5 bg-gray-300"></span>
+                <span class="font-semibold text-red-600">Submission Deadline: 06/02/1447 H</span>
+            </div>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="sticky top-4 z-10 mb-8">
+            <div id="progress-container" class="progress-bar-container shadow-md">
+                <div id="progress-bar" class="progress-bar">0%</div>
+            </div>
+        </div>
+
+        <!-- Checklist Sections -->
+        <div class="space-y-8">
+
+            <!-- Section 1: Pre-Submission & Eligibility -->
+            <section id="eligibility" class="card p-6">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>Pre-Submission & Eligibility</h2>
+                <div class="space-y-4">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="custom-checkbox">
+                        <span class="ml-4">
+                            <strong class="block">Review Bidder Eligibility</strong>
+                            <span class="text-gray-600 text-sm">Confirm your organization is not prohibited from participating (e.g., not a state employee, not bankrupt, not dissolved).</span>
+                        </span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="custom-checkbox">
+                        <span class="ml-4">
+                            <strong class="block">Confirm Commercial Activity</strong>
+                            <span class="text-gray-600 text-sm">Ensure "Artificial Intelligence Technologies" (code 620113) is listed as an activity in your commercial register. This is a mandatory requirement.</span>
+                        </span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Section 2: Required Company Documents -->
+            <section id="documents" class="card p-6">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>Required Company Documents</h2>
+                <p class="text-sm text-gray-500 mb-4">All documents must be valid. A 10-day grace period may be granted for missing/expired certificates, after which the bid will be excluded.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4">Commercial Register</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4">Zakat Certificate</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4">Tax Certificate</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4">Social Insurance Certificate</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4">Chamber of Commerce Certificate</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4">Saudization Certificate</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4">Municipality License</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4">SME Certificate (if applicable, for Bid Bond exemption)</span></label>
+                </div>
+            </section>
+
+            <!-- Section 3: Bid Formatting & Submission -->
+            <section id="formatting" class="card p-6">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>Bid Formatting & Submission</h2>
+                <div class="space-y-4">
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Language:</strong> Submitted in Arabic.</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Currency:</strong> All prices in Saudi Riyal (SAR).</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>File Format:</strong> Single PDF file with all pages stamped.</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Submission:</strong> Submitted electronically via Etimad portal.</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>File Structure:</strong> Two separate, encrypted files (Technical and Financial).</span></label>
+                    <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Cover Letter:</strong> Include an official, signed cover letter.</span></label>
+                </div>
+            </section>
+            
+            <!-- Section 4: Financial Bid -->
+            <section id="financial" class="card p-6">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path><path d="M18 12a2 2 0 0 0 0 4h4v-4h-4z"></path></svg>Financial Bid Documents</h2>
+                <div class="space-y-4">
+                     <label class="checkbox-label">
+                        <input type="checkbox" class="custom-checkbox">
+                        <span class="ml-4">
+                            <strong class="block">Bid Bond (Initial Guarantee)</strong>
+                            <span class="text-gray-600 text-sm">Value: 1% of total bid. Validity: 90+ days. Original delivered physically, copy included in financial file. SMEs are exempt but must attach Monsha'at certificate.</span>
+                        </span>
+                    </label>
+                     <label class="checkbox-label">
+                        <input type="checkbox" class="custom-checkbox">
+                        <span class="ml-4">
+                            <strong class="block">Schedule of Quantities and Prices</strong>
+                            <span class="text-gray-600 text-sm">Must be filled out on Etimad platform AND attached in the bid. Prices must match exactly. All items must be priced.</span>
+                        </span>
+                    </label>
+                     <label class="checkbox-label">
+                        <input type="checkbox" class="custom-checkbox">
+                        <span class="ml-4">
+                            <strong class="block">Payment Schedule</strong>
+                            <span class="text-gray-600 text-sm">Propose a schedule with payment values, percentages, and due stages.</span>
+                        </span>
+                    </label>
+                     <label class="checkbox-label">
+                        <input type="checkbox" class="custom-checkbox">
+                        <span class="ml-4">
+                            <strong class="block">Certified Bid Letter</strong>
+                            <span class="text-gray-600 text-sm">A formal bid letter certified by the bidder's legal representative.</span>
+                        </span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Section 5: Technical Bid -->
+            <section id="technical" class="card p-6">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><path d="M15.5 2H8.6c-.4 0-.8.2-1.1.5-.3.3-.5.7-.5 1.1v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h8.8c.4 0 .8-.2 1.1-.5.3-.3.5-.7.5-1.1V6.5L15.5 2z"></path><path d="M3 7.6v12.8c0 .4.2.8.5 1.1.3.3.7.5 1.1.5h8.8"></path><path d="M15 2v5h5"></path></svg>Technical Bid Documents</h2>
+                <div class="note mb-6">
+                    <p class="font-semibold">Passing Score Required: Your technical bid must score at least <strong>75 out of 100 points</strong> to be considered for the award.</p>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">A. Core Proposal & Experience</h3>
+                        <div class="space-y-4 pl-4 border-l-2 border-gray-200">
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Introduction & Organizational Structure</strong></span></label>
+                             <label class="checkbox-label">
+                                <input type="checkbox" class="custom-checkbox">
+                                <span class="ml-4">
+                                    <strong class="block">Work Implementation Methodology</strong>
+                                    <span class="text-gray-600 text-sm">Provide a clear methodology. <span class="points">Up to 35 points</span></span>
+                                </span>
+                            </label>
+                             <label class="checkbox-label">
+                                <input type="checkbox" class="custom-checkbox">
+                                <span class="ml-4">
+                                    <strong class="block">Detailed Project Timeline</strong>
+                                    <span class="text-gray-600 text-sm">Show logical sequence and appropriate durations. <span class="points">10 points</span></span>
+                                </span>
+                            </label>
+                             <label class="checkbox-label">
+                                <input type="checkbox" class="custom-checkbox">
+                                <span class="ml-4">
+                                    <strong class="block">Past Experience Documentation</strong>
+                                    <span class="text-gray-600 text-sm">Detail relevant projects, years of experience, and government sector work. <span class="points">Up to 10 points</span></span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">B. Human Resources (Work Team)</h3>
+                         <div class="space-y-4 pl-4 border-l-2 border-gray-200">
+                             <label class="checkbox-label">
+                                <input type="checkbox" class="custom-checkbox">
+                                <span class="ml-4">
+                                    <strong class="block">Work Team Structure & Roles</strong>
+                                    <span class="text-gray-600 text-sm">Provide an organizational chart and define responsibilities for each member. <span class="points">10 points</span></span>
+                                </span>
+                            </label>
+                             <label class="checkbox-label">
+                                <input type="checkbox" class="custom-checkbox">
+                                <span class="ml-4">
+                                    <strong class="block">Team CVs & Certificates</strong>
+                                    <span class="text-gray-600 text-sm">Attach résumés and experience certificates for all proposed team members. Ensure they meet Appendix 4 qualifications. <span class="points">10 points</span></span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                     <div>
+                        <h3 class="text-lg font-semibold mb-3">C. Required Plans & Commitments</h3>
+                         <div class="space-y-4 pl-4 border-l-2 border-gray-200">
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Quality Management Plan</strong> <span class="points">5 points</span></span></label>
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Risk and Crisis Management Plan</strong> <span class="points">5 points</span></span></label>
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Knowledge Transfer Plan</strong> <span class="points">10 points</span></span></label>
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Business Continuity Mechanism</strong> <span class="points">5 points</span></span></label>
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Statement of Compliance with Special Conditions</strong> (e.g., in-country hosting, source code delivery).</span></label>
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Service Level Agreement (SLA) Proposal</strong> (based on ITIL standards).</span></label>
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Cybersecurity Commitment Statement</strong> (acknowledging all requirements).</span></label>
+                             <label class="checkbox-label"><input type="checkbox" class="custom-checkbox"><span class="ml-4"><strong>Subcontractor Information</strong> (if applicable, including names, work scope, and payment declaration).</span></label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>This checklist is a guide based on the RFP documents. Always refer to the official RFP for complete details.</p>
+            <p class="font-semibold mt-1">Good luck with your submission!</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for Progress Bar
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const progressBar = document.getElementById('progress-bar');
+            const totalCheckboxes = checkboxes.length;
+
+            function updateProgress() {
+                const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+                const percentage = totalCheckboxes > 0 ? Math.round((checkedCount / totalCheckboxes) * 100) : 0;
+                progressBar.style.width = percentage + '%';
+                progressBar.textContent = percentage + '%';
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+
+            // Initial calculation
+            updateProgress();
+        });
+    </script>
+
+</body>
+</html>
