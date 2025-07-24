@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive RFP: AI for Hajj Slaughterhouse Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF5;
+            color: #374151;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link.active {
+            color: #047857;
+            border-bottom-color: #047857;
+        }
+        .use-case-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        #use-case-modal, #text-modal {
+            transition: opacity 0.3s ease;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .arrow-down {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-emerald-800">AI Slaughterhouse RFP</h1>
+                </div>
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link text-gray-500 hover:text-emerald-700 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">Overview</a>
+                        <a href="#scope" class="nav-link text-gray-500 hover:text-emerald-700 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">Scope & Timeline</a>
+                        <a href="#technical" class="nav-link text-gray-500 hover:text-emerald-700 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">Technical Details</a>
+                        <a href="#bidding" class="nav-link text-gray-500 hover:text-emerald-700 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">Bidding Process</a>
+                        <a href="#team" class="nav-link text-gray-500 hover:text-emerald-700 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">Team & Conditions</a>
+                        <a href="#appendices" class="nav-link text-gray-500 hover:text-emerald-700 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent">Appendices</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <section id="overview" class="py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">AI-Powered Smart Monitoring for Hajj Slaughterhouses</h2>
+                <p class="mt-4 text-lg leading-8 text-gray-600 max-w-3xl mx-auto">A comprehensive, interactive guide to the Request for Proposal from the Saudi Arabian Ministry of Environment, Water, and Agriculture.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-4xl font-bold text-emerald-700">24</p>
+                    <p class="mt-2 text-base font-medium text-gray-500">Months Project Duration</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-4xl font-bold text-emerald-700">~40</p>
+                    <p class="mt-2 text-base font-medium text-gray-500">Total Estimated Use Cases</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="text-4xl font-bold text-emerald-700">Multi-Tenant</p>
+                    <p class="mt-2 text-base font-medium text-gray-500">Platform Architecture</p>
+                </div>
+            </div>
+            <div class="mt-12 bg-emerald-50 border-l-4 border-emerald-500 text-emerald-800 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-2">Summary: Core Project Objectives</h3>
+                <p class="text-emerald-700">This project seeks a contractor to develop and operate an AI-powered surveillance system for Hajj slaughterhouses over 24 months. The system will use computer vision to automate monitoring across ~40 scenarios, focusing on enhancing compliance with health, environmental, and Islamic standards. Key goals include boosting operational efficiency, ensuring animal welfare through smart automation, and providing a data-driven platform for real-time decision-making to improve the overall quality of service.</p>
+            </div>
+        </section>
+
+        <section id="scope" class="py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Project Scope & Timeline</h2>
+                <p class="mt-4 text-lg leading-8 text-gray-600">The project involves implementing numerous AI use cases over a structured 24-month timeline.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Key Deadlines & Penalties</h3>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <label for="currentDate" class="font-medium text-gray-700">Select Current Date:</label>
+                            <input type="date" id="currentDate" class="border-gray-300 rounded-md shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                        </div>
+                        <ul id="deadlines-list" class="space-y-3"></ul>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-500 text-red-800 p-4 rounded-lg">
+                        <h4 class="font-bold">Delay Penalties</h4>
+                        <p class="text-sm mt-1">A fine of <strong>5,000 SAR per day</strong> will be applied for any delays in deliverables or required amendments.</p>
+                    </div>
+                 </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-center text-gray-800">Project Phases & Deliverables (24 Months)</h3>
+                <div class="flex items-center gap-4 mb-6 justify-center">
+                    <label for="projectStartDate" class="font-medium text-gray-700">Select Project Start Date:</label>
+                    <input type="date" id="projectStartDate" value="2025-09-13" class="border-gray-300 rounded-md shadow-sm focus:border-emerald-500 focus:ring-emerald-500">
+                </div>
+                <div class="chart-container h-96">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+                <div id="phase-dates-table-container" class="mt-8 overflow-x-auto"></div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-1 text-center text-gray-800">Scope of Work: 19 Listed Use Cases (of ~40 Total)</h3>
+                <p class="text-center text-sm text-gray-500 mb-4">Click on a card for a detailed description.</p>
+                <div id="use-case-filters" class="flex flex-wrap justify-center gap-2 mb-8">
+                    <button class="filter-btn active bg-emerald-600 text-white px-4 py-2 rounded-full text-sm font-medium" data-filter="all">All Categories</button>
+                </div>
+                <div id="use-case-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <section id="technical" class="py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Technical Details & Requirements</h2>
+                <p class="mt-4 text-lg leading-8 text-gray-600">The RFP specifies a mandatory technical architecture, a set of required technologies, and extensive cybersecurity protocols.</p>
+            </div>
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">System Architecture Model</h3>
+                    <p class="text-gray-600 mb-6 max-w-3xl mx-auto text-center">The required system is a two-tier hybrid model. On-site "Edge" devices perform initial processing to save bandwidth, while a central "Data Center" handles advanced AI analysis and serves the user interface.</p>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+                        <div class="w-full md:w-5/12 p-4 border rounded-lg bg-gray-50 text-center">
+                            <h4 class="font-bold text-lg mb-2">Branch (On-Site)</h4>
+                            <div class="flex justify-center items-center gap-4">
+                                <div class="text-emerald-700">
+                                    <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    <p class="text-xs mt-1">Cameras (RTSP)</p>
+                                </div>
+                                <div class="text-gray-500 font-mono text-xs">&rarr;</div>
+                                <div class="text-emerald-700">
+                                    <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3M5.636 5.636l-1.414-1.414m15.152 0l-1.414 1.414M5.636 18.364l-1.414 1.414m15.152 0l-1.414-1.414M9 12a3 3 0 116 0 3 3 0 01-6 0z"></path></svg>
+                                    <p class="text-xs mt-1">Edge Device</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-4">Selects key frames for analysis.</p>
+                        </div>
+                        <div class="text-gray-500 font-mono text-lg font-bold">&rarr;<br>REST API</div>
+                        <div class="w-full md:w-5/12 p-4 border rounded-lg bg-gray-50 text-center">
+                            <h4 class="font-bold text-lg mb-2">Data Center (Cloud)</h4>
+                            <div class="flex justify-center items-center gap-4">
+                                <div class="text-emerald-700">
+                                    <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                                    <p class="text-xs mt-1">GPU VMs & SQL DB</p>
+                                </div>
+                                <div class="text-gray-500 font-mono text-xs">&rarr;</div>
+                                <div class="text-emerald-700">
+                                    <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    <p class="text-xs mt-1">FE App</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-4">Runs advanced AI models and serves the UI.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center my-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-4xl font-bold text-emerald-700">1100+</p>
+                        <p class="mt-2 text-base font-medium text-gray-500">Total Cameras</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-4xl font-bold text-emerald-700">4</p>
+                        <p class="mt-2 text-base font-medium text-gray-500">Slaughterhouse Facilities</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="text-4xl font-bold text-emerald-700">10+ TB</p>
+                        <p class="mt-2 text-base font-medium text-gray-500">Available Training Data</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Implementation and Building of Systems and Platforms</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-gray-700">1. Preparation & Training</h4>
+                            <ul class="mt-2 list-disc list-inside space-y-1 text-sm text-gray-600">
+                                <li>Supervise hardware installation (Edge Devices, Cameras).</li>
+                                <li>Verify network and server setup for real-time processing.</li>
+                                <li>Deploy and train specified AI models (YOLOv8, etc.).</li>
+                                <li>Begin implementation of use cases.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-gray-700">2. Integration & Testing</h4>
+                            <ul class="mt-2 list-disc list-inside space-y-1 text-sm text-gray-600">
+                                <li>Integrate with Active Directory, 2FA, and Nafath.</li>
+                                <li>Connect all systems via modern APIs.</li>
+                                <li>Conduct comprehensive operational tests.</li>
+                                <li>Validate Edge-to-Cloud data flow and real-time processing.</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-gray-700">3. Deployment & Launch</h4>
+                            <ul class="mt-2 list-disc list-inside space-y-1 text-sm text-gray-600">
+                                <li>Transfer the tested solution to the live environment.</li>
+                                <li>Ensure all cybersecurity standards are met on launch.</li>
+                                <li>Prepare all necessary deployment documentation.</li>
+                                <li>Launch will follow Agile methodology based on use case readiness.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Cybersecurity Requirements</h3>
+                    <div class="mb-6 bg-emerald-50 border-l-4 border-emerald-500 text-emerald-800 p-4 rounded-lg">
+                        <h4 class="font-bold">Summary: Key Cybersecurity Mandates</h4>
+                        <ul class="list-disc list-inside mt-2 text-sm text-emerald-700">
+                            <li>All external parties must sign a <strong>Non-Disclosure Agreement (NDA)</strong>.</li>
+                            <li>Strict adherence to all <strong>Ministry and national cybersecurity policies</strong> is required.</li>
+                            <li>Any cybersecurity incident must be immediately reported to the <strong>Ministry's SOC</strong>.</li>
+                            <li>Solutions must undergo <strong>vulnerability assessments and hardening</strong> before deployment.</li>
+                            <li><strong>Secure development practices</strong> (MFA, WAF, CAPTCHA, secure APIs) are mandatory.</li>
+                            <li>All data, including backups, must be <strong>encrypted and stored securely</strong>.</li>
+                        </ul>
+                    </div>
+                    <button class="text-emerald-600 font-semibold hover:underline" onclick="showTextModal('Full Cybersecurity Requirements', 'cybersecurityText')">View Full Cybersecurity Document</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="bidding" class="py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Bidding Process & Evaluation</h2>
+                <p class="mt-4 text-lg leading-8 text-gray-600">Understand the eligibility rules and how your bid will be evaluated.</p>
+            </div>
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Bid Evaluation Criteria</h3>
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-gray-700">Stage 1: Basic Pass/Fail Criteria</h4>
+                        <p class="mb-4 text-gray-600">To qualify for technical scoring, a bidder's proposal <strong>must</strong> meet all of the following five conditions:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 text-center">
+                            <div class="p-3 bg-gray-50 rounded-lg"><span class="font-semibold">1.</span> Fulfill technical specs</div>
+                            <div class="p-3 bg-gray-50 rounded-lg"><span class="font-semibold">2.</span> Commit to timeline</div>
+                            <div class="p-3 bg-gray-50 rounded-lg"><span class="font-semibold">3.</span> Commit to outputs</div>
+                            <div class="p-3 bg-gray-50 rounded-lg"><span class="font-semibold">4.</span> Provide work plan</div>
+                            <div class="p-3 bg-gray-50 rounded-lg"><span class="font-semibold">5.</span> Understand the service</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-gray-700">Stage 2: Detailed Technical Scoring (Minimum 75 points to pass)</h4>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                            <div class="chart-container h-80">
+                                 <canvas id="evaluationChart"></canvas>
+                            </div>
+                            <div id="evaluation-details" class="space-y-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Team & Special Conditions</h2>
+                <p class="mt-4 text-lg leading-8 text-gray-600">The RFP outlines mandatory requirements for the project team and other critical project conditions.</p>
+            </div>
+             <div class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Mandatory Human Resources</h3>
+                    <table id="team-table" class="w-full text-left">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="p-4 font-semibold text-sm text-gray-600">Job Title</th>
+                                <th class="p-4 font-semibold text-sm text-gray-600">Min. Experience</th>
+                                <th class="p-4 font-semibold text-sm text-gray-600">Qualifications</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-amber-500">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Critical Special Conditions</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600">
+                        <li>Commercial registration must include "Artificial Intelligence Technologies" (code 620113).</li>
+                        <li>Solution must be deployed on a cloud environment <strong>inside the Kingdom of Saudi Arabia</strong>.</li>
+                        <li>All source code and trained AI models must be delivered to the Ministry upon project completion.</li>
+                        <li>The solution must not contain any closed-source libraries or require proprietary operating licenses.</li>
+                        <li>The architecture must be multi-tenant and consistent with existing Ministry platforms.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="appendices" class="py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900">Appendices & Full Documents</h2>
+                <p class="mt-4 text-lg leading-8 text-gray-600">Access the full text of key documents and frequently asked questions.</p>
+            </div>
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Frequently Asked Questions for Suppliers</h3>
+                    <div id="faq-container" class="space-y-2"></div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Bidder Questions & Answers</h3>
+                    <div id="bidder-faq-container" class="space-y-2"></div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Full Text Documents</h3>
+                    <p class="mb-4 text-gray-600">For detailed legal and procedural information, please review the full text of the General Provisions from the main RFP document.</p>
+                    <div class="bg-emerald-50 border-l-4 border-emerald-500 text-emerald-800 p-4 rounded-lg mb-4">
+                        <h4 class="font-bold">Summary: General Provisions</h4>
+                        <ul class="list-disc list-inside mt-2 text-sm text-emerald-700">
+                            <li><strong>Equality & Transparency:</strong> All bidders must be treated equally and given the same information.</li>
+                            <li><strong>Conflict of Interest:</strong> Bidders must disclose any potential conflicts of interest.</li>
+                            <li><strong>Confidentiality:</strong> All RFP information is confidential and cannot be shared.</li>
+                            <li><strong>Intellectual Property:</strong> The IP of the winning bid belongs to the Government Entity.</li>
+                            <li><strong>Subcontracting:</strong> Subcontracting is limited to 30% of the contract value and requires approval.</li>
+                        </ul>
+                    </div>
+                    <button class="text-emerald-600 font-semibold hover:underline" onclick="showTextModal('Full General Provisions', 'generalProvisionsText')">View Full General Provisions Document</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Ministry of Environment, Water, and Agriculture. Interactive RFP Summary.</p>
+        </div>
+    </footer>
+
+    <div id="use-case-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 relative">
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold text-gray-900 mb-2"></h3>
+            <p id="modal-category" class="text-sm font-semibold uppercase tracking-wider text-emerald-600 mb-4"></p>
+            <div id="modal-description" class="text-gray-600 space-y-3"></div>
+        </div>
+    </div>
+    
+    <div id="text-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 id="text-modal-title" class="text-2xl font-bold text-gray-900"></h3>
+                <button id="text-modal-close-btn" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="text-modal-content" class="p-6 overflow-y-auto text-gray-600 space-y-3"></div>
+        </div>
+    </div>
+
+    <div id="full-text-storage" class="hidden">
+        <div id="cybersecurityText">
+            <p><strong>For All Ministry of Environment, Water and Agriculture Projects:</strong></p>
+            <ol class="list-decimal list-inside space-y-2">
+                <li>The external party and its representatives (individuals and entities) must sign a non-disclosure agreement, which remains in effect even after the relationship with the Ministry ends. It must include secure deletion and destruction of data so that it cannot be recovered from any storage media.</li>
+                <li>The external party and its representatives are committed to applying the approved cybersecurity requirements, guidelines, and policies of the Ministry and relevant legislative and regulatory requirements, including any updates.</li>
+                <li>The external party must provide a security clearance document for its personnel in technical positions with significant and sensitive privileges.</li>
+                <li>Immediately after the termination of any of its personnel's relationship with the Ministry, the external party is committed to conducting a review and revocation of privileges on information and technical assets, and to carry out all clearance requirements in coordination with the relevant departments at the Ministry.</li>
+                <li>The external party is committed to disclosing any cybersecurity risks or incidents and informing the Ministry via phone (0112038888, ext. 4555) and email (Soc@mewa.gov.sa).</li>
+                <li>Cybersecurity requirements must be included in contracts and agreements with the external party, such as the Service Level Agreement (SLA).</li>
+            </ol>
+            <p class="mt-4"><strong>For Technical Projects at the Ministry:</strong></p>
+            <ol class="list-decimal list-inside space-y-2">
+                <li>Document and provide the technical security standards for the solutions provided by the implementing company, according to the manufacturer's guidelines and relevant international standards, in coordination with the General Directorate of Cybersecurity at the Ministry.</li>
+                <li>The solutions must be fully implemented and tested in an independent environment (development, testing) before being launched in the live environment.</li>
+                <li>Ensure secure integration at all levels of the provided solution so that there are no conflicts.</li>
+                <li>Disclose and address any security risks or vulnerabilities in the provided solutions and products.</li>
+                <li>Assess, discover, and remedy vulnerabilities before launch, coordinating with the General Directorate of Cybersecurity and obtaining final approval.</li>
+                <li>Review settings, hardening, update packages, and necessary fixes before launch. This includes vulnerability assessment, reviewing settings for compliance, reviewing network ports and protocols, changing default factory settings, reviewing login identities and privileges, ensuring no hardcoded passwords, ensuring complex passwords, limiting failed login attempts, setting password expiration, restricting external storage media, centralizing clock synchronization, ensuring comprehensive backups, testing backup restoration, and ensuring documentation is accurate.</li>
+                <li>Adhere to the policy of cybersecurity requirements within the management of information and technical projects approved by the Ministry.</li>
+                <li>In application and software development projects, use secure development standards, including not exposing sensitive information, customizing error pages, using separate and least-privilege service accounts with complex passwords, keeping components updated, securing API authentication, using limited access accounts for databases, implementing CAPTCHA and MFA, applying WAFs, and using licensed and vetted libraries.</li>
+            </ol>
+             <p class="mt-4"><strong>Cyber Incidents:</strong></p>
+            <ol class="list-decimal list-inside space-y-2">
+                <li>The external party must disclose any cybersecurity incident to the Ministry's SOC immediately.</li>
+                <li>The external party must coordinate with the Ministry to review the approved Cyber Incident Management Policy.</li>
+                <li>Include cybersecurity awareness for all external personnel, covering incidents like unauthorized changes, malware, application modifications, unauthorized data access, and social engineering attempts.</li>
+                <li>The external party must not disclose any information related to security incidents to other external parties.</li>
+                <li>If resolving an incident requires technical changes, the approved change management procedures must be followed.</li>
+            </ol>
+        </div>
+        <div id="generalProvisionsText">
+            <p><strong>10 - Equality and Transparency:</strong> The Government Entity shall inform all bidders of the information related to the scope of work of the competition, enabling them to evaluate the works before obtaining the competition documents. It shall provide the necessary clarifications and data about the required works and procurements sufficiently in advance of the bid submission deadline. The Government Entity is committed to not discriminating between bidders in any of the foregoing.</p>
+            <p><strong>11 - Conflict of Interest:</strong> The bidder, its employees, its affiliated companies, its subcontractors, and anyone with a direct or indirect relationship to the execution and provision of the works and procurements included in the scope of this competition, are obligated to inform the Government Entity and disclose in writing any case of conflict of interest.</p>
+            <p><strong>12 - Conduct and Ethics:</strong> The bidder and its affiliates are prohibited from violating the rules of professional conduct and ethics. In all cases, they are committed not to obtain or attempt to obtain an undue advantage in any way, or to offer any gift or benefit to obtain preferential treatment from the employees of the Government Entity.</p>
+            <p><strong>13 - Confidentiality and Disclosure of Information:</strong> Bidders are obligated not to disclose any data, drawings, documents, or information related to the competition, whether written or oral, or to exploit or disclose them. Bidders may not publish any information about the competition without prior written approval from the Government Entity.</p>
+            <p><strong>14 - Ownership of Competition Documents:</strong> The ownership of the competition documents and all their copies shall remain with the Government Entity, and bidders must destroy those documents upon request.</p>
+            <p><strong>15 - Intellectual Property Rights:</strong> The intellectual property of the contents of the winning bid or bids shall belong to the Government Entity, which has the right to use and dispose of it as it deems appropriate.</p>
+            <p><strong>16 - Local Content:</strong> Bidders must comply with the Regulation for Preferring Local Content, Local Small and Medium Enterprises, and Companies Listed in the Financial Market.</p>
+            <p><strong>17 - Import Regulations and Provisions:</strong> The bidder acknowledges their awareness of the import and customs regulations in the Kingdom of Saudi Arabia.</p>
+            <p><strong>18 - Division of the Competition:</strong> The competition is not divisible.</p>
+            <p><strong>19 - Exclusion from the Competition:</strong> The Entity has the right to exclude any bid with prices lower by 25% or more than the estimated cost and prevailing market prices after discussion with the bidder.</p>
+            <p><strong>20 - Cancellation of the Competition and its Effect:</strong> The Entity has the right to cancel the competition for reasons such as major errors in documents, violation of procedures, or public interest. Costs of documents may be returned in specific cases.</p>
+            <p><strong>21 - Negotiation with Bidders:</strong> The Entity has the right to negotiate if the best bid's price is significantly higher than market prices or exceeds the approved budget.</p>
+            <p><strong>22 - Joint Ventures (Solidarity):</strong> Bidders may form a joint venture to submit bids, provided a certified agreement is in place defining a lead partner and ensuring joint and several liability.</p>
+            <p><strong>23 - Subcontracting:</strong> Subcontracting is permitted for up to 30% of the contract value (or up to 50% with special approval), requires prior approval of subcontractors, and the main contractor remains fully responsible.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // --- Chart.js Timeline Chart ---
+            const timelineData = {
+                labels: ['Planning & Design', 'Development & Testing', 'AI Model Implementation', 'System Launch', 'Operation & Support'],
+                datasets: [{
+                    label: 'Duration (Weeks)',
+                    data: [
+                        { x: [0, 4], y: 'Planning & Design' },
+                        { x: [4, 12], y: 'Development & Testing' },
+                        { x: [12, 48], y: 'AI Model Implementation' },
+                        { x: [48, 52], y: 'System Launch' },
+                        { x: [52, 104], y: 'Operation & Support' }
+                    ],
+                    backgroundColor: ['#34D399', '#60A5FA', '#FBBF24', '#F87171', '#A78BFA'],
+                    borderColor: ['#059669', '#2563EB', '#D97706', '#DC2626', '#7C3AED'],
+                    borderWidth: 1,
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.7
+                }]
+            };
+
+            const timelineConfig = {
+                type: 'bar',
+                data: timelineData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const item = context.dataset.data[context.dataIndex];
+                                    return ` Weeks: ${item.x[0]} - ${item.x[1]}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { title: { display: true, text: 'Project Timeline (Weeks)' }, min: 0, max: 104 },
+                        y: { stacked: true }
+                    }
+                }
+            };
+            new Chart(document.getElementById('timelineChart').getContext('2d'), timelineConfig);
+
+            // --- Chart.js Evaluation Criteria Chart ---
+            const evaluationData = {
+                labels: ['Methodology & Quality (40)', 'HR Competency (20)', 'Timeline & Experience (20)', 'Knowledge Transfer (10)', 'Risk Management (5)', 'Business Continuity (5)'],
+                datasets: [{
+                    label: 'Points',
+                    data: [40, 20, 20, 10, 5, 5],
+                    backgroundColor: ['#10B981', '#3B82F6', '#F59E0B', '#8B5CF6', '#EF4444', '#6B7280'],
+                    hoverOffset: 4
+                }]
+            };
+
+            const evaluationConfig = {
+                type: 'doughnut',
+                data: evaluationData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                             callbacks: {
+                                label: function(context) { return `${context.label}: ${context.raw} points`; }
+                            }
+                        }
+                    }
+                }
+            };
+            const evaluationChart = new Chart(document.getElementById('evaluationChart').getContext('2d'), evaluationConfig);
+            
+            // --- Dynamic Evaluation Criteria Details ---
+            const evaluationDetailsContainer = document.getElementById('evaluation-details');
+            const evaluationCriteria = [
+                { main: 'Methodology and Quality Management', score: 40, subs: [
+                    { name: 'Bidder\'s methodology', points: 35, detail: '10 pts for clear understanding, 15 pts for AI models with >=85% accuracy, 10 pts for overall suitability.'},
+                    { name: 'Quality management plan', points: 5, detail: '5 pts for providing a comprehensive quality plan.'}
+                ]},
+                { main: 'Human Resources Competency', score: 20, subs: [
+                    { name: 'Work team structure', points: 5, detail: '5 pts for providing a clear organizational chart.'},
+                    { name: 'Roles and responsibilities', points: 5, detail: '5 pts for defining roles for each team member.'},
+                    { name: 'Competency of CVs', points: 10, detail: '10 pts if all CVs are suitable for the project scope.'}
+                ]},
+                { main: 'Project Timeline and Past Experience', score: 20, subs: [
+                    { name: 'Logical sequence of work', points: 10, detail: '10 pts for a logical plan with appropriate durations.'},
+                    { name: 'Years of experience', points: 5, detail: '1 pt for <3 yrs, 3 pts for <7 yrs, 5 pts for 7+ yrs.'},
+                    { name: 'Number of similar projects', points: 5, detail: '1 pt for <5 projects, 3 pts for <10, 5 pts for 10+.'}
+                ]},
+                { main: 'Knowledge Transfer', score: 10, subs: [
+                    { name: 'Knowledge transfer plan', points: 10, detail: '10 pts for providing a comprehensive plan.'}
+                ]},
+                { main: 'Risk and Crisis Management', score: 5, subs: [
+                    { name: 'Risk management plan', points: 5, detail: '5 pts for providing a risk response plan.'}
+                ]},
+                { main: 'Business Continuity', score: 5, subs: [
+                    { name: 'Business continuity mechanism', points: 5, detail: '5 pts for providing a business continuity plan.'}
+                ]}
+            ];
+
+            evaluationCriteria.forEach(criterion => {
+                const detail = document.createElement('details');
+                detail.className = 'border-b border-gray-200 py-2';
+                detail.innerHTML = `
+                    <summary class="flex justify-between items-center cursor-pointer py-2">
+                        <span class="font-medium text-gray-800">${criterion.main}</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-bold text-emerald-600">${criterion.score} Points</span>
+                            <span class="arrow-down transition-transform duration-300">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </div>
+                    </summary>
+                    <div class="pt-2 pb-4 pl-4 border-l-2 border-emerald-100">
+                        ${criterion.subs.map(sub => `
+                            <div class="mt-2">
+                                <p class="font-semibold text-gray-700">${sub.name} (${sub.points} pts)</p>
+                                <p class="text-sm text-gray-500">${sub.detail}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                evaluationDetailsContainer.appendChild(detail);
+            });
+
+            // --- Use Case Data and Filtering ---
+            const useCases = [
+                { category: 'Monitoring and Classification of Livestock', title: 'Automated Counting & Classification', description: 'Use a multi-camera system and advanced computer vision to accurately monitor and classify livestock, providing daily reports on numbers, types, and flow rates.' },
+                { category: 'Monitoring and Classification of Livestock', title: 'Gender Identification', description: 'Apply deep learning models to analyze the physical characteristics of livestock to accurately determine their gender.' },
+                { category: 'Monitoring and Classification of Livestock', title: 'Disease Detection', description: 'Use computer vision techniques to monitor and analyze indicators of diseases in animals both before and after slaughter.' },
+                { category: 'Monitoring Performance within Slaughterhouses', title: 'Slaughtering Process Verification', description: 'Verify that all slaughtering operations are implemented according to the specific health and religious requirements.' },
+                { category: 'Monitoring Performance within Slaughterhouses', title: 'Veterinary Inspection Monitoring', description: 'Monitor and verify the implementation of veterinary inspections on all carcasses.' },
+                { category: 'Monitoring Performance within Slaughterhouses', title: 'Carcass Delivery & Condemnation', description: 'Monitor the delivery of approved carcasses and the process for total or partial condemnation of others according to regulations.' },
+                { category: 'Monitoring Performance within Slaughterhouses', title: 'Waste Disposal Tracking', description: 'Track the complete workflow of waste disposal to ensure it adheres to environmental and health requirements.' },
+                { category: 'Monitoring Performance within Slaughterhouses', title: 'Animal Welfare Monitoring', description: 'Monitor the handling of livestock to ensure the application of all animal welfare rules and Islamic guidelines.' },
+                { category: 'Human Resources Management', title: 'Work Attire Compliance', description: 'Verify that all personnel are in compliance with the official work uniform and attire requirements.' },
+                { category: 'Human Resources Management', title: 'Task Completion Time Analysis', description: 'Analyze the time taken to execute specific tasks to evaluate performance efficiency and identify opportunities to increase productivity.' },
+                { category: 'Human Resources Management', title: 'PPE Usage Monitoring', description: 'Monitor all workers to ensure they are wearing the required personal protective equipment (PPE) and adhering to health requirements.' },
+                { category: 'Human Resources Management', title: 'Smoking Violation Detection', description: 'Actively monitor all facilities to detect and report any smoking violations in non-designated areas.' },
+                { category: 'Safety and Compliance', title: 'Water & Energy Consumption', description: 'Analyze water and energy consumption patterns to detect waste and improve the efficiency of resource use.' },
+                { category: 'Safety and Compliance', title: 'Vehicle License Plate OCR', description: 'Implement an OCR system to automatically analyze vehicle license plates to securely manage and log entry and exit.' },
+                { category: 'Safety and Compliance', title: 'Crowd & Assembly Monitoring', description: 'Monitor assembly areas to ensure compliance with safety procedures and to prevent overcrowding and congestion.' },
+                { category: 'Safety and Compliance', title: 'Aggressive Activity Detection', description: 'Detect aggressive activities or behavior among individuals and take corrective actions to ensure safety.' },
+                { category: 'Safety and Compliance', title: 'Conflict Detection', description: 'Detect conflicts or disputes in service areas and take immediate action to address them and maintain order.' },
+                { category: 'Customer Experience Analysis', title: 'Customer Satisfaction Analysis', description: 'Evaluate facial expressions and other behavioral indicators to quantitatively measure customer satisfaction levels.' },
+                { category: 'Customer Experience Analysis', title: 'Wait Time Monitoring', description: 'Monitor the workflow in customer-facing areas to identify bottlenecks, reduce waiting times, and improve the overall beneficiary experience.' }
+            ];
+
+            const useCaseGrid = document.getElementById('use-case-grid');
+            const useCaseFilters = document.getElementById('use-case-filters');
+            const categories = [...new Set(useCases.map(uc => uc.category))];
+
+            categories.forEach(category => {
+                const button = document.createElement('button');
+                button.className = 'filter-btn bg-white text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-300';
+                button.textContent = category;
+                button.dataset.filter = category;
+                useCaseFilters.appendChild(button);
+            });
+
+            const renderUseCases = (filter = 'all') => {
+                useCaseGrid.innerHTML = '';
+                const filteredCases = filter === 'all' ? useCases : useCases.filter(uc => uc.category === filter);
+                filteredCases.forEach(uc => {
+                    const originalIndex = useCases.findIndex(item => item.title === uc.title);
+                    const card = document.createElement('div');
+                    card.className = 'use-case-card bg-white p-6 rounded-lg shadow-md';
+                    card.dataset.index = originalIndex;
+                    card.innerHTML = `<p class="text-xs font-semibold uppercase tracking-wider text-emerald-600">${uc.category}</p><h4 class="text-lg font-semibold mt-2 text-gray-800"><span class="text-emerald-700 font-bold">${originalIndex + 1}.</span> ${uc.title}</h4>`;
+                    useCaseGrid.appendChild(card);
+                });
+            };
+
+            useCaseFilters.addEventListener('click', (e) => {
+                if (e.target.classList.contains('filter-btn')) {
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active', 'bg-emerald-600', 'text-white');
+                        btn.classList.add('bg-white', 'text-gray-700');
+                    });
+                    e.target.classList.add('active', 'bg-emerald-600', 'text-white');
+                    e.target.classList.remove('bg-white', 'text-gray-700');
+                    renderUseCases(e.target.dataset.filter);
+                }
+            });
+            renderUseCases();
+
+            // --- Modal Handling (Use Cases, Full Text) ---
+            const useCaseModal = document.getElementById('use-case-modal');
+            const useCaseModalCloseBtn = document.getElementById('modal-close-btn');
+            const modalTitle = document.getElementById('modal-title');
+            const modalCategory = document.getElementById('modal-category');
+            const modalDescription = document.getElementById('modal-description');
+            
+            let currentUseCaseIndex = -1;
+
+            const showUseCaseModal = (index) => {
+                currentUseCaseIndex = index;
+                const useCase = useCases[index];
+                modalTitle.innerHTML = `<span class="text-emerald-700 font-bold">${parseInt(index) + 1}.</span> ${useCase.title}`;
+                modalCategory.textContent = useCase.category;
+                modalDescription.innerHTML = `<p>${useCase.description}</p>`;
+                useCaseModal.classList.remove('hidden');
+                useCaseModal.classList.add('flex');
+            };
+
+            const hideUseCaseModal = () => {
+                useCaseModal.classList.add('hidden');
+                useCaseModal.classList.remove('flex');
+            };
+
+            useCaseGrid.addEventListener('click', (e) => {
+                const card = e.target.closest('.use-case-card');
+                if (card) { showUseCaseModal(card.dataset.index); }
+            });
+
+            useCaseModalCloseBtn.addEventListener('click', hideUseCaseModal);
+            useCaseModal.addEventListener('click', (e) => { if (e.target === useCaseModal) { hideUseCaseModal(); } });
+            
+            const textModal = document.getElementById('text-modal');
+            const textModalCloseBtn = document.getElementById('text-modal-close-btn');
+            const textModalTitle = document.getElementById('text-modal-title');
+            const textModalContent = document.getElementById('text-modal-content');
+            
+            window.showTextModal = (title, contentId) => {
+                textModalTitle.textContent = title;
+                const content = document.getElementById(contentId).innerHTML;
+                textModalContent.innerHTML = content;
+                textModal.classList.remove('hidden');
+                textModal.classList.add('flex');
+            };
+
+            const hideTextModal = () => {
+                textModal.classList.add('hidden');
+                textModal.classList.remove('flex');
+            };
+            
+            textModalCloseBtn.addEventListener('click', hideTextModal);
+            textModal.addEventListener('click', (e) => { if (e.target === textModal) { hideTextModal(); } });
+
+            // --- Dynamic Table Data (Team, FAQ) ---
+            const teamData = [
+                { title: 'IT Project Manager', exp: '10 years', qual: '• Bachelor\'s degree in IT, Engineering, Business Admin, Accounting, or related field.<br>• PMP certification from PMI is preferred.<br>• PgMP, PMI-SP, PMI-RMP, or PMI-ACP certifications are a plus.<br>• Fluency in Arabic & English is preferred.' },
+                { title: 'Business Consulting Specialist', exp: '5 years', qual: '• Bachelor\'s degree in IT, Engineering, Business Admin, or related field.<br>• TOGAF 9 certification is preferred.' },
+                { title: 'Technical Architect', exp: '5 years', qual: '• Bachelor\'s degree in IT, Engineering, Business Admin, Accounting, or related field.' },
+                { title: 'AI Engineer', exp: '5 years', qual: '• Bachelor\'s degree in IT, Engineering, Business Admin, Accounting, or related field.' },
+                { title: 'Backend & Frontend Developer', exp: '5 years', qual: '• Bachelor\'s degree in IT, Engineering, Business Admin, Accounting, or related field.' },
+                { title: 'Quality Assurance Lead', exp: '5 years', qual: '• Bachelor\'s degree in IT, Engineering, Business Admin, Accounting, or related field.' }
+            ];
+
+            const teamTableBody = document.querySelector('#team-table tbody');
+            teamData.forEach(member => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td class="p-4 text-sm font-medium text-gray-900">${member.title}</td><td class="p-4 text-sm text-gray-500">${member.exp}</td><td class="p-4 text-sm text-gray-500">${member.qual}</td>`;
+                teamTableBody.appendChild(row);
+            });
+
+            const faqData = [
+                { q: 'Can a supplier inquire about a competition?', a: 'Yes, through the inquiries section on the competition page and only during the inquiry period.' },
+                { q: 'Is it possible to visit the site?', a: 'Yes, if the project-owning entity permits it.' },
+                { q: 'When is the bid bond submitted?', a: 'The original bid bond must be delivered a maximum of one working day before the bid opening.' },
+                { q: 'Do small and medium enterprises have to submit a bid bond?', a: 'No, but they must attach a certificate from Monsha\'at proving their status when submitting the bid.' },
+                { q: 'Can a supplier merge the technical and financial bids into one file?', a: 'No, unless indicated in the basic information of the competition.' },
+                { q: 'When can the supplier start implementing the project works?', a: 'After signing the contract.' }
+            ];
+
+            const faqContainer = document.getElementById('faq-container');
+            faqData.forEach(item => {
+                const detail = document.createElement('details');
+                detail.className = 'border-b border-gray-200 py-2';
+                detail.innerHTML = `
+                    <summary class="flex justify-between items-center cursor-pointer py-2">
+                        <span class="font-medium text-gray-800">${item.q}</span>
+                        <span class="arrow-down transition-transform duration-300">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="pt-2 pb-4 text-gray-600">${item.a}</p>
+                `;
+                faqContainer.appendChild(detail);
+            });
+
+            const bidderFaqData = [
+                { q: 'Is the system required to operate only during the Hajj season, or year-round?', a: 'Year-round.' },
+                { q: 'How many slaughterhouses are in scope?', a: '4 slaughterhouses, with a design for future expansion.' },
+                { q: 'Who are the "beneficiaries" of the project?', a: 'Pilgrims, slaughterhouse administrations, ministry inspectors, and senior management.' },
+                { q: 'Is there a priority list for the 40 use cases?', a: 'This will be coordinated during the analysis phase.' },
+                { q: 'Can the frontend have multiple platforms?', a: 'No, a single platform is required.' },
+                { q: 'Who is responsible for analyzing and designing the use cases?', a: 'The bidder must analyze and design them.' },
+                { q: 'What is the purpose of the multi-tenancy requirement?', a: 'To support multiple branches and slaughterhouses with complete data separation.' },
+                { q: 'Are we required to use the specific AI models mentioned (e.g., YOLOv8)?', a: 'You can propose alternatives, provided they are compatible with current operations.' },
+                { q: 'Who provides the initial data for training the AI models?', a: 'The Ministry will provide the data (+10 Terabytes of images and video).' },
+                { q: 'Will the cameras and edge devices be provided?', a: 'Yes, they will be provided installed and ready for use.' },
+                { q: 'Are there existing IoT sensors to integrate with?', a: 'No.' },
+                { q: 'Besides Active Directory and Nafath, are there other systems to integrate with?', a: 'This will be clarified during the analysis phase.' },
+                { q: 'Will the Ministry provide a standards guide for slaughterhouse operations?', a: 'Yes, the Ministry will provide it.' },
+                { q: 'Is the proposed system architecture mandatory?', a: 'You can propose an alternative, provided it is compatible with current operations.' },
+                { q: 'Who performs the periodic security and penetration tests?', a: 'A third party appointed by the Ministry. The contractor must address the findings.' },
+                { q: 'Is there an existing email or SMS gateway for notifications?', a: 'Yes.' },
+                { q: 'Where is technical support required?', a: 'Both at the slaughterhouse sites and at the Ministry\'s headquarters.' },
+                { q: 'What is the total number of cameras and sites?', a: 'Approximately 1100+ cameras across 4 sites (300+ per site).' },
+                { q: 'What is the preferred licensing model?', a: 'Perpetual.' },
+                { q: 'Can the development timeframe be extended to 14 months?', a: 'No.' },
+                { q: 'Are L1, L2, L3 support teams, call centers, or field support required?', a: 'This should be based on your proposed solution and the Service Level Agreement (SLA).' },
+                { q: 'Is a SOC/NOC required?', a: 'Not required.' },
+                { q: 'Will the Ministry provide monitoring or ITSM tools (e.g., ServiceNow)?', a: 'No.' }
+            ];
+
+            const bidderFaqContainer = document.getElementById('bidder-faq-container');
+            bidderFaqData.forEach(item => {
+                const detail = document.createElement('details');
+                detail.className = 'border-b border-gray-200 py-2';
+                detail.innerHTML = `
+                    <summary class="flex justify-between items-center cursor-pointer py-2">
+                        <span class="font-medium text-gray-800">${item.q}</span>
+                        <span class="arrow-down transition-transform duration-300">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="pt-2 pb-4 text-gray-600">${item.a}</p>
+                `;
+                bidderFaqContainer.appendChild(detail);
+            });
+            
+            // --- Deadline Countdown and Phase Date Calculator ---
+            const deadlines = [
+                { label: 'Questions & Inquiries', date: '2025-07-28', hijri: '02/02/1447 H' },
+                { label: 'Bid Submission Deadline', date: '2025-08-01', hijri: '06/02/1447 H' },
+                { label: 'Project Award', date: '2025-08-15', hijri: '20/02/1447 H' },
+                { label: 'Work Commencement', date: '2025-09-13', hijri: '19/03/1447 H' }
+            ];
+
+            const deadlinesList = document.getElementById('deadlines-list');
+            const datePicker = document.getElementById('currentDate');
+
+            const updateDeadlines = (selectedDateStr) => {
+                deadlinesList.innerHTML = '';
+                const today = new Date(selectedDateStr + 'T00:00:00Z');
+                
+                deadlines.forEach(deadline => {
+                    const deadlineDate = new Date(deadline.date + 'T23:59:59Z');
+                    const diffTime = deadlineDate - today;
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    let countdownText = '';
+                    if (diffDays < 0) {
+                        countdownText = `(Passed)`;
+                    } else if (diffDays === 0) {
+                        countdownText = `(Today)`;
+                    } else {
+                        countdownText = `(${diffDays} days remaining)`;
+                    }
+                    
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong class="text-gray-900">${deadline.label}:</strong> ${deadline.hijri} / ${deadline.date} <span class="text-sm text-gray-500 font-medium">${countdownText}</span>`;
+                    deadlinesList.appendChild(li);
+                });
+            };
+
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const todayStr = `${yyyy}-${mm}-${dd}`;
+            
+            datePicker.value = todayStr;
+            updateDeadlines(todayStr);
+
+            datePicker.addEventListener('change', (e) => {
+                updateDeadlines(e.target.value);
+            });
+            
+            const projectStartDatePicker = document.getElementById('projectStartDate');
+            const phaseDatesTableContainer = document.getElementById('phase-dates-table-container');
+            const phases = [
+                { name: '1. Planning & Design', duration: 4 },
+                { name: '2. Development & Testing', duration: 8 },
+                { name: '3. AI Model Implementation', duration: 36 },
+                { name: '4. System Launch', duration: 4 },
+                { name: '5. Operation & Support', duration: 52 }
+            ];
+
+            const calculatePhaseDates = (startDateStr) => {
+                phaseDatesTableContainer.innerHTML = '';
+                let currentDate = new Date(startDateStr + 'T00:00:00Z');
+                
+                const table = document.createElement('table');
+                table.className = 'w-full text-left';
+                table.innerHTML = `
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-sm text-gray-600">Phase</th>
+                            <th class="p-4 font-semibold text-sm text-gray-600">Start Date</th>
+                            <th class="p-4 font-semibold text-sm text-gray-600">End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200"></tbody>
+                `;
+                const tbody = table.querySelector('tbody');
+
+                phases.forEach(phase => {
+                    const startDate = new Date(currentDate);
+                    currentDate.setDate(currentDate.getDate() + phase.duration * 7);
+                    const endDate = new Date(currentDate);
+                    endDate.setDate(endDate.getDate() - 1);
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="p-4 text-sm font-medium text-gray-900">${phase.name}</td>
+                        <td class="p-4 text-sm text-gray-500">${startDate.toISOString().split('T')[0]}</td>
+                        <td class="p-4 text-sm text-gray-500">${endDate.toISOString().split('T')[0]}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+                phaseDatesTableContainer.appendChild(table);
+            };
+            
+            calculatePhaseDates(projectStartDatePicker.value);
+            projectStartDatePicker.addEventListener('change', (e) => calculatePhaseDates(e.target.value));
+
+            // --- Scrollspy for Active Navigation Link ---
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.4 });
+
+            sections.forEach(section => { observer.observe(section); });
+        });
+    </script>
+</body>
+</html>
