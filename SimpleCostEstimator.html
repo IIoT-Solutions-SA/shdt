@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Cost Estimator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .table-input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.375rem;
+            text-align: right;
+            background-color: #F9FAFB;
+        }
+        .table-output {
+            padding: 0.5rem;
+            text-align: right;
+            font-weight: 500;
+        }
+        .summary-label {
+            font-weight: 600;
+        }
+        .summary-value {
+            font-weight: 700;
+            color: #1D4ED8;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            border-bottom: 2px solid #3B82F6;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            transition: background-color 0.2s;
+        }
+        .remove-row-btn {
+            background-color: #FEE2E2;
+            color: #DC2626;
+        }
+        .remove-row-btn:hover {
+            background-color: #FECACA;
+        }
+        .add-row-btn {
+            background-color: #3B82F6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: background-color 0.2s;
+        }
+        .add-row-btn:hover {
+            background-color: #2563EB;
+        }
+        /* Style for the scrollable table container */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+        .wide-table {
+            min-width: 1200px; /* Force table to be wide, triggering scroll */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Project Cost Estimator</h1>
+            <p class="text-lg text-gray-600 mt-2">AI for Smart Monitoring of Slaughterhouse Operations during Hajj</p>
+        </header>
+
+        <!-- Project Information Section -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="!mt-0">Project Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div><span class="font-semibold">Competition Name:</span> Implementation of Artificial Intelligence Applications for Smart Monitoring of Slaughterhouse Operations during Hajj</div>
+                <div><span class="font-semibold">Customer:</span> Ministry of Environment, Water and Agriculture</div>
+                <div><span class="font-semibold">Booklet Number:</span> 220325061704</div>
+                <div><span class="font-semibold">Project Duration:</span> 24 Months</div>
+            </div>
+        </div>
+
+        <!-- Engineering Services / Human Resources -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2>Engineering Services & Human Resources</h2>
+            <p class="text-gray-600 mb-4">Costs are estimated for the full 24-month project duration as per the RFP. Modify monthly costs or duration as needed.</p>
+            <div class="table-container">
+                <table class="w-full text-sm text-left text-gray-500 wide-table">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                        <tr>
+                            <th scope="col" class="px-6 py-3" style="min-width: 300px;">Role / Service Description</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 100px;">Resources</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 100px;">Duration</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 150px;">Monthly Cost (SAR)</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 150px;">Total Cost (SAR)</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 100px;">Margin (%)</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 150px;">Total Price (SAR)</th>
+                            <th scope="col" class="px-2 py-3 text-center" style="min-width: 80px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="services-table">
+                        <!-- Rows will be dynamically inserted here by JavaScript -->
+                    </tbody>
+                    <tfoot>
+                        <tr class="font-semibold text-gray-900 bg-gray-50">
+                            <th scope="row" colspan="4" class="px-6 py-3 text-base text-right">Total Services Cost</th>
+                            <td id="total-services-cost" class="px-6 py-3 text-base table-output">0.00</td>
+                            <td></td>
+                            <td id="total-services-price" class="px-6 py-3 text-base table-output text-blue-600">0.00</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <button id="add-service-row" class="add-row-btn">+ Add Item</button>
+        </div>
+
+        <!-- Material & Software Costs -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2>Material & Software Costs</h2>
+            <p class="text-gray-600 mb-4">Includes costs for cloud infrastructure and necessary software. Hardware is noted as out-of-scope in the RFP.</p>
+            <div class="table-container">
+                <table class="w-full text-sm text-left text-gray-500 wide-table">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                        <tr>
+                            <th scope="col" class="px-6 py-3" style="min-width: 350px;">Item Description</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 100px;">Quantity</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 150px;">Unit Cost (SAR)</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 150px;">Total Cost (SAR)</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 100px;">Margin (%)</th>
+                            <th scope="col" class="px-6 py-3 text-right" style="min-width: 150px;">Total Price (SAR)</th>
+                            <th scope="col" class="px-2 py-3 text-center" style="min-width: 80px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materials-table">
+                        <!-- Rows will be dynamically inserted here by JavaScript -->
+                    </tbody>
+                    <tfoot>
+                        <tr class="font-semibold text-gray-900 bg-gray-50">
+                            <th scope="row" colspan="3" class="px-6 py-3 text-base text-right">Total Material & Software Cost</th>
+                            <td id="total-materials-cost" class="px-6 py-3 text-base table-output">0.00</td>
+                            <td></td>
+                            <td id="total-materials-price" class="px-6 py-3 text-base table-output text-blue-600">0.00</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <button id="add-material-row" class="add-row-btn">+ Add Item</button>
+        </div>
+
+        <!-- Summary & Final Calculation -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2>Summary & Final Calculation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                
+                <!-- Left Side: Core Costs -->
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="summary-label">Total Direct Costs (Services + Materials):</span>
+                        <span id="summary-subtotal" class="table-output">0.00 SAR</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="summary-label">Total Margin Amount:</span>
+                        <span id="summary-margin-amount" class="table-output">0.00 SAR</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="summary-label">Contingency (10% of Direct Costs):</span>
+                        <span id="summary-contingency" class="table-output">0.00 SAR</span>
+                    </div>
+                     <div class="flex justify-between items-center">
+                        <span class="summary-label">Insurance (1.5% of Direct Costs):</span>
+                        <span id="summary-insurance" class="table-output">0.00 SAR</span>
+                    </div>
+                </div>
+
+                <!-- Right Side: Markups & Final Price -->
+                <div class="space-y-4">
+                    <hr class="md:hidden">
+                    <div class="flex justify-between items-center text-lg">
+                        <span class="summary-label">Price before VAT:</span>
+                        <span id="summary-pre-vat" class="table-output text-blue-600">0.00 SAR</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="summary-label">VAT (15%):</span>
+                        <span id="summary-vat" class="table-output">0.00 SAR</span>
+                    </div>
+                    <div class="flex justify-between items-center text-2xl p-4 bg-blue-50 rounded-lg">
+                        <span class="font-bold text-blue-800">Total Project Price:</span>
+                        <span id="summary-total" class="font-bold text-blue-800">0.00 SAR</span>
+                    </div>
+                </div>
+
+                <!-- RFP Specific Financials -->
+                <div class="md:col-span-2 mt-6 border-t pt-6">
+                     <h3 class="!mt-0">RFP Financial Requirements</h3>
+                     <div class="space-y-3 text-gray-700">
+                        <div class="flex justify-between items-center">
+                            <span>Bid Bond (1% of Total Price):</span>
+                            <span id="summary-bid-bond" class="font-semibold">0.00 SAR</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Performance Bond (5% of Total Price):</span>
+                            <span id="summary-performance-bond" class="font-semibold">0.00 SAR</span>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA ---
+        const initialServicesData = [
+            { id: 1, desc: 'IT Project Manager', resources: 1, duration: 24, cost: 35000, margin: 20 },
+            { id: 2, desc: 'Business Consulting Specialist', resources: 1, duration: 24, cost: 25000, margin: 20 },
+            { id: 3, desc: 'Technical Architect', resources: 1, duration: 24, cost: 30000, margin: 20 },
+            { id: 4, desc: 'Artificial Intelligence Engineer', resources: 2, duration: 24, cost: 28000, margin: 25 },
+            { id: 5, desc: 'Backend and Frontend Developer', resources: 2, duration: 24, cost: 24000, margin: 20 },
+            { id: 6, desc: 'Quality Assurance Lead', resources: 1, duration: 24, cost: 22000, margin: 20 },
+        ];
+        
+        const initialMaterialsData = [
+            { id: 1, desc: 'Cloud Hosting (GPU VMs for AI Models)', quantity: 24, unit_cost: 15000, margin: 15 },
+            { id: 2, desc: 'Project Management & Collaboration Software', quantity: 24, unit_cost: 500, margin: 10 },
+            { id: 3, desc: 'Data Storage & Backup Services', quantity: 24, unit_cost: 1000, margin: 10 },
+        ];
+        
+        const trashIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16"><path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/></svg>`;
+
+        // --- UTILITY FUNCTIONS ---
+        const formatCurrency = (value) => {
+            return new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+        };
+
+        // --- CALCULATION LOGIC ---
+        function calculateAll() {
+            let totalServicesCost = 0;
+            let totalServicesPrice = 0;
+            document.querySelectorAll('#services-table tr').forEach(row => {
+                const resources = parseFloat(row.querySelector('.resources-input').value) || 0;
+                const duration = parseFloat(row.querySelector('.duration-input').value) || 0;
+                const cost = parseFloat(row.querySelector('.cost-input').value) || 0;
+                const margin = parseFloat(row.querySelector('.margin-input').value) / 100 || 0;
+                
+                const rowCost = resources * duration * cost;
+                const rowPrice = rowCost * (1 + margin);
+                
+                row.querySelector('.total-cost-output').textContent = formatCurrency(rowCost);
+                row.querySelector('.total-price-output').textContent = formatCurrency(rowPrice);
+                
+                totalServicesCost += rowCost;
+                totalServicesPrice += rowPrice;
+            });
+            document.getElementById('total-services-cost').textContent = formatCurrency(totalServicesCost);
+            document.getElementById('total-services-price').textContent = formatCurrency(totalServicesPrice);
+            
+            let totalMaterialsCost = 0;
+            let totalMaterialsPrice = 0;
+            document.querySelectorAll('#materials-table tr').forEach(row => {
+                const quantity = parseFloat(row.querySelector('.quantity-input').value) || 0;
+                const unit_cost = parseFloat(row.querySelector('.unit-cost-input').value) || 0;
+                const margin = parseFloat(row.querySelector('.margin-input').value) / 100 || 0;
+
+                const rowCost = quantity * unit_cost;
+                const rowPrice = rowCost * (1 + margin);
+
+                row.querySelector('.total-cost-output').textContent = formatCurrency(rowCost);
+                row.querySelector('.total-price-output').textContent = formatCurrency(rowPrice);
+
+                totalMaterialsCost += rowCost;
+                totalMaterialsPrice += rowPrice;
+            });
+            document.getElementById('total-materials-cost').textContent = formatCurrency(totalMaterialsCost);
+            document.getElementById('total-materials-price').textContent = formatCurrency(totalMaterialsPrice);
+
+            // Summary Calculations
+            const totalDirectCosts = totalServicesCost + totalMaterialsCost;
+            const totalMarginAmount = (totalServicesPrice + totalMaterialsPrice) - totalDirectCosts;
+            const contingency = totalDirectCosts * 0.10;
+            const insurance = totalDirectCosts * 0.015;
+            
+            const pricePreVat = totalDirectCosts + totalMarginAmount + contingency + insurance;
+            const vat = pricePreVat * 0.15;
+            const totalPrice = pricePreVat + vat;
+            const bidBond = totalPrice * 0.01;
+            const performanceBond = totalPrice * 0.05;
+
+            // Update Summary UI
+            document.getElementById('summary-subtotal').textContent = `${formatCurrency(totalDirectCosts)} SAR`;
+            document.getElementById('summary-margin-amount').textContent = `${formatCurrency(totalMarginAmount)} SAR`;
+            document.getElementById('summary-contingency').textContent = `${formatCurrency(contingency)} SAR`;
+            document.getElementById('summary-insurance').textContent = `${formatCurrency(insurance)} SAR`;
+            document.getElementById('summary-pre-vat').textContent = `${formatCurrency(pricePreVat)} SAR`;
+            document.getElementById('summary-vat').textContent = `${formatCurrency(vat)} SAR`;
+            document.getElementById('summary-total').textContent = `${formatCurrency(totalPrice)} SAR`;
+            document.getElementById('summary-bid-bond').textContent = `${formatCurrency(bidBond)} SAR`;
+            document.getElementById('summary-performance-bond').textContent = `${formatCurrency(performanceBond)} SAR`;
+        }
+        
+        // --- DYNAMIC ROW FUNCTIONS ---
+        function createServiceRow(item = {}) {
+            const row = document.createElement('tr');
+            row.className = 'bg-white border-b';
+            row.innerHTML = `
+                <td class="px-6 py-4"><input type="text" value="${item.desc || ''}" placeholder="Service Description" class="table-input !text-left"></td>
+                <td class="px-6 py-4"><input type="number" value="${item.resources || 1}" class="table-input resources-input"></td>
+                <td class="px-6 py-4"><input type="number" value="${item.duration || 24}" class="table-input duration-input"></td>
+                <td class="px-6 py-4"><input type="number" value="${item.cost || 0}" class="table-input cost-input"></td>
+                <td class="px-6 py-4 table-output total-cost-output">0.00</td>
+                <td class="px-6 py-4"><input type="number" value="${item.margin || 20}" class="table-input margin-input"></td>
+                <td class="px-6 py-4 table-output total-price-output text-blue-600">0.00</td>
+                <td class="px-2 py-4 text-center">
+                    <button class="action-button remove-row-btn">
+                        ${trashIconSVG}
+                    </button>
+                </td>
+            `;
+            return row;
+        }
+
+        function createMaterialRow(item = {}) {
+             const row = document.createElement('tr');
+            row.className = 'bg-white border-b';
+            row.innerHTML = `
+                <td class="px-6 py-4"><input type="text" value="${item.desc || ''}" placeholder="Material Description" class="table-input !text-left"></td>
+                <td class="px-6 py-4"><input type="number" value="${item.quantity || 1}" class="table-input quantity-input"></td>
+                <td class="px-6 py-4"><input type="number" value="${item.unit_cost || 0}" class="table-input unit-cost-input"></td>
+                <td class="px-6 py-4 table-output total-cost-output">0.00</td>
+                <td class="px-6 py-4"><input type="number" value="${item.margin || 15}" class="table-input margin-input"></td>
+                <td class="px-6 py-4 table-output total-price-output text-blue-600">0.00</td>
+                <td class="px-2 py-4 text-center">
+                    <button class="action-button remove-row-btn">
+                        ${trashIconSVG}
+                    </button>
+                </td>
+            `;
+            return row;
+        }
+
+        // --- INITIALIZATION ---
+        function initializeTables() {
+            const servicesTable = document.getElementById('services-table');
+            initialServicesData.forEach(item => {
+                servicesTable.appendChild(createServiceRow(item));
+            });
+
+            const materialsTable = document.getElementById('materials-table');
+            initialMaterialsData.forEach(item => {
+                materialsTable.appendChild(createMaterialRow(item));
+            });
+        }
+
+        // --- EVENT LISTENERS ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeTables();
+            calculateAll();
+
+            // Add row buttons
+            document.getElementById('add-service-row').addEventListener('click', () => {
+                document.getElementById('services-table').appendChild(createServiceRow());
+                calculateAll();
+            });
+
+            document.getElementById('add-material-row').addEventListener('click', () => {
+                document.getElementById('materials-table').appendChild(createMaterialRow());
+                calculateAll();
+            });
+
+            // Event delegation for inputs and remove buttons
+            document.querySelector('.container').addEventListener('input', (e) => {
+                if (e.target.classList.contains('table-input')) {
+                    calculateAll();
+                }
+            });
+
+            document.querySelector('.container').addEventListener('click', (e) => {
+                const removeBtn = e.target.closest('.remove-row-btn');
+                if (removeBtn) {
+                    removeBtn.closest('tr').remove();
+                    calculateAll();
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
