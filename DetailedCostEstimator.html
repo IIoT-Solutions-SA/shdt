@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Cost Estimator - Functional Breakdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .table-input { width: 100%; padding: 0.5rem; border: 1px solid #D1D5DB; border-radius: 0.375rem; text-align: right; background-color: #F9FAFB; }
+        .table-output { padding: 0.5rem; text-align: right; font-weight: 500; }
+        .summary-label { font-weight: 600; }
+        h2 { font-size: 1.5rem; font-weight: 700; color: #111827; border-bottom: 2px solid #3B82F6; padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.25rem; font-weight: 600; color: #374151; margin-top: 1.5rem; margin-bottom: 1rem; }
+        .action-button { display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem; border-radius: 9999px; transition: background-color 0.2s; }
+        .remove-row-btn { background-color: #FEE2E2; color: #DC2626; }
+        .remove-row-btn:hover { background-color: #FECACA; }
+        .add-row-btn { background-color: #3B82F6; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: 500; margin-top: 1rem; transition: background-color 0.2s; }
+        .add-row-btn:hover { background-color: #2563EB; }
+        .phase-container { margin-bottom: 2.5rem; }
+        .table-container { width: 100%; overflow-x: auto; }
+        .wide-table { width: 100%; min-width: 1500px; }
+        .phase-header { background-color: #DBEAFE; font-weight: 600; font-size: 1.1rem; padding: 0.75rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .phase-header .arrow { transition: transform 0.2s; }
+        .phase-header.expanded .arrow { transform: rotate(90deg); }
+        .phase-content { display: block; }
+        .phase-content.hidden { display: none; }
+        .child-row { background-color: #FAFAFA; }
+        .phase-footer-row { background-color: #BFDBFE; font-weight: bold; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900">Project Cost Estimator (Functional Breakdown)</h1>
+            <p class="text-lg text-gray-600 mt-2">AI for Smart Monitoring of Slaughterhouse Operations during Hajj</p>
+        </header>
+
+        <!-- Resource Rate Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2>Resource Rate Card</h2>
+            <p class="text-gray-600 mb-4">Define the monthly cost for each project role. This will be used to calculate the average team cost for deliverables.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="rate-card-container">
+                <!-- Rate card items will be injected here -->
+            </div>
+             <div class="mt-4 pt-4 border-t flex justify-end items-center font-bold">
+                <span class="text-gray-700 mr-4">Average Blended Rate (per Man-Month):</span>
+                <span id="blended-rate" class="text-xl text-green-600">0.00 SAR</span>
+            </div>
+        </div>
+
+        <!-- Project Deliverables Cost Breakdown -->
+        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2>Project Deliverables & Cost Breakdown</h2>
+            <p class="text-gray-600 mb-4">Estimate the effort and material costs for each project deliverable. Each phase has its own table and scrollbar.</p>
+            <div id="phases-container">
+                <!-- Phase tables will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Summary & Final Calculation -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2>Summary & Final Calculation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center"><span class="summary-label">Total Direct Costs:</span><span id="summary-subtotal" class="table-output">0.00 SAR</span></div>
+                    <div class="flex justify-between items-center"><span class="summary-label">Total Margin Amount:</span><span id="summary-margin-amount" class="table-output">0.00 SAR</span></div>
+                    <div class="flex justify-between items-center"><span class="summary-label">Contingency (10% of Direct Costs):</span><span id="summary-contingency" class="table-output">0.00 SAR</span></div>
+                    <div class="flex justify-between items-center"><span class="summary-label">Insurance (1.5% of Direct Costs):</span><span id="summary-insurance" class="table-output">0.00 SAR</span></div>
+                </div>
+                <div class="space-y-4">
+                    <hr class="md:hidden">
+                    <div class="flex justify-between items-center text-lg"><span class="summary-label">Price before VAT:</span><span id="summary-pre-vat" class="table-output text-blue-600">0.00 SAR</span></div>
+                    <div class="flex justify-between items-center"><span class="summary-label">VAT (15%):</span><span id="summary-vat" class="table-output">0.00 SAR</span></div>
+                    <div class="flex justify-between items-center text-2xl p-4 bg-blue-50 rounded-lg"><span class="font-bold text-blue-800">Total Project Price:</span><span id="summary-total" class="font-bold text-blue-800">0.00 SAR</span></div>
+                </div>
+                <div class="md:col-span-2 mt-6 border-t pt-6">
+                     <h3 class="!mt-0">RFP Financial Requirements</h3>
+                     <div class="space-y-3 text-gray-700">
+                        <div class="flex justify-between items-center"><span>Bid Bond (1% of Total Price):</span><span id="summary-bid-bond" class="font-semibold">0.00 SAR</span></div>
+                        <div class="flex justify-between items-center"><span>Performance Bond (5% of Total Price):</span><span id="summary-performance-bond" class="font-semibold">0.00 SAR</span></div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA ---
+        const initialRateCard = [
+            { role: 'IT Project Manager', cost: 35000, count: 1 },
+            { role: 'Business Consulting Specialist', cost: 25000, count: 1 },
+            { role: 'Technical Architect', cost: 30000, count: 1 },
+            { role: 'AI Engineer', cost: 28000, count: 2 },
+            { role: 'Backend/Frontend Developer', cost: 24000, count: 2 },
+            { role: 'Quality Assurance Lead', cost: 22000, count: 1 },
+            { role: 'Support Engineer', cost: 18000, count: 2 },
+        ];
+
+        const initialDeliverables = [
+            { id: 1, desc: 'Phase 1: Platform Planning & Design', children: [
+                { id: 101, desc: 'Project Kick-off & Requirements Workshops', effort: 1, material: 0, margin: 20 },
+                { id: 102, desc: 'Business Requirements Document (BRD) Creation', effort: 2, material: 0, margin: 20 },
+                { id: 103, desc: 'Technical Architecture & System Design Document', effort: 3, material: 0, margin: 20 },
+                { id: 104, desc: 'Cybersecurity & Compliance Plan', effort: 1, material: 0, margin: 20 },
+            ]},
+            { id: 2, desc: 'Phase 2: Platform Development & Testing', children: [
+                { id: 201, desc: 'Platform Backend Development (APIs, Database)', effort: 5, material: 10000, margin: 20 },
+                { id: 202, desc: 'Platform Frontend Development (Dashboard UI/UX)', effort: 5, material: 5000, margin: 20 },
+                { id: 203, desc: 'System Integration (Active Directory, Nafath)', effort: 2, material: 0, margin: 20 },
+                { id: 204, desc: 'Unit, Integration, and Performance Testing', effort: 2, material: 5000, margin: 20 },
+            ]},
+            { id: 3, desc: 'Phase 3: AI Models Implementation (19 Use Cases)', children: [
+                { id: 301, desc: 'Monitor and classify livestock (numbers, types, flow)', effort: 1.5, material: 10000, margin: 25 },
+                { id: 302, desc: 'Determine livestock gender', effort: 1.5, material: 5000, margin: 25 },
+                { id: 303, desc: 'Monitor for diseases (pre/post-slaughter)', effort: 2.0, material: 15000, margin: 25 },
+                { id: 304, desc: 'Verify slaughtering operations compliance', effort: 1.5, material: 2000, margin: 25 },
+                { id: 305, desc: 'Verify veterinary inspection of carcasses', effort: 1.5, material: 2000, margin: 25 },
+                { id: 306, desc: 'Monitor carcass delivery compliance', effort: 1.0, material: 1000, margin: 25 },
+                { id: 307, desc: 'Monitor total/partial condemnation of carcasses', effort: 1.0, material: 1000, margin: 25 },
+                { id: 308, desc: 'Track waste disposal workflow', effort: 1.5, material: 5000, margin: 25 },
+                { id: 309, desc: 'Monitor animal welfare compliance', effort: 2.0, material: 5000, margin: 25 },
+                { id: 310, desc: 'Verify official work uniform compliance', effort: 1.0, material: 1000, margin: 25 },
+                { id: 311, desc: 'Analyze task execution time for efficiency', effort: 1.5, material: 1000, margin: 25 },
+                { id: 312, desc: 'Monitor PPE wearing and health requirements', effort: 1.5, material: 1000, margin: 25 },
+                { id: 313, desc: 'Monitor smoking violations', effort: 0.5, material: 500, margin: 25 },
+                { id: 314, desc: 'Analyze water and energy consumption', effort: 1.5, material: 10000, margin: 25 },
+                { id: 315, desc: 'OCR for vehicle license plates', effort: 1.5, material: 5000, margin: 25 },
+                { id: 316, desc: 'Monitor assembly areas for safety', effort: 1.0, material: 2000, margin: 25 },
+                { id: 317, desc: 'Detect aggressive activities', effort: 1.5, material: 2000, margin: 25 },
+                { id: 318, desc: 'Measure customer satisfaction (facial/behavioral)', effort: 2.0, material: 5000, margin: 25 },
+                { id: 319, desc: 'Monitor workflow to reduce waiting times', effort: 1.5, material: 2000, margin: 25 },
+            ]},
+            { id: 4, desc: 'Phase 4: Launch Phase', children: [
+                { id: 401, desc: 'System Deployment to Production', effort: 2, material: 5000, margin: 20 },
+                { id: 402, desc: 'User Acceptance Testing (UAT) Support', effort: 3, material: 0, margin: 20 },
+                { id: 403, desc: 'Final Knowledge Transfer & Training', effort: 1, material: 0, margin: 20 },
+                { id: 404, desc: 'Go-Live Hypercare Support (2 weeks)', effort: 1, material: 0, margin: 20 },
+            ]},
+            { id: 5, desc: 'Phase 5: Operation & Technical Support', children: [
+                { id: 501, desc: '24/7 Technical Support & Helpdesk', effort: 24, material: 10000, margin: 15 },
+                { id: 502, desc: 'Periodic System Maintenance & Updates', effort: 12, material: 10000, margin: 15 },
+                { id: 503, desc: 'Performance Monitoring & Reporting', effort: 12, material: 5000, margin: 15 },
+                { id: 504, desc: 'Ongoing AI Model Tuning & Improvement', effort: 24, material: 15000, margin: 15 },
+            ]},
+        ];
+
+        const trashIconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5zM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5z"/></svg>`;
+        const arrowSVG = `<svg class="arrow w-5 h-5 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`;
+
+        const formatCurrency = (value) => new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+
+        function getBlendedRate() {
+            let totalCost = 0;
+            let totalResources = 0;
+            document.querySelectorAll('#rate-card-container .rate-card-item').forEach(card => {
+                const cost = parseFloat(card.querySelector('.rate-cost-input').value) || 0;
+                const count = parseFloat(card.querySelector('.rate-count-input').value) || 0;
+                totalCost += cost * count;
+                totalResources += count;
+            });
+            const rate = totalResources > 0 ? totalCost / totalResources : 0;
+            document.getElementById('blended-rate').textContent = `${formatCurrency(rate)} SAR`;
+            return rate;
+        }
+
+        function calculateAll() {
+            const blendedRate = getBlendedRate();
+            let grandTotalDirectCost = 0;
+            let grandTotalPrice = 0;
+
+            document.querySelectorAll('.phase-table').forEach(phaseTable => {
+                let phaseTotalEffort = 0;
+                let phaseTotalLaborCost = 0;
+                let phaseTotalMaterialCost = 0;
+                let phaseTotalDirectCost = 0;
+                let phaseTotalPrice = 0;
+                
+                phaseTable.querySelectorAll('.child-row').forEach(row => {
+                    const effort = parseFloat(row.querySelector('.effort-input').value) || 0;
+                    const materialCost = parseFloat(row.querySelector('.material-input').value) || 0;
+                    const margin = parseFloat(row.querySelector('.margin-input').value) / 100 || 0;
+                    const laborCost = effort * blendedRate;
+                    const directCost = laborCost + materialCost;
+                    const price = directCost * (1 + margin);
+
+                    row.querySelector('.labor-cost-output').textContent = formatCurrency(laborCost);
+                    row.querySelector('.direct-cost-output').textContent = formatCurrency(directCost);
+                    row.querySelector('.price-output').textContent = formatCurrency(price);
+                    
+                    phaseTotalEffort += effort;
+                    phaseTotalLaborCost += laborCost;
+                    phaseTotalMaterialCost += materialCost;
+                    phaseTotalDirectCost += directCost;
+                    phaseTotalPrice += price;
+                });
+                
+                const footer = phaseTable.querySelector('.phase-footer-row');
+                if (footer) {
+                    footer.querySelector('.phase-effort-total').textContent = phaseTotalEffort.toFixed(2);
+                    footer.querySelector('.phase-labor-total').textContent = formatCurrency(phaseTotalLaborCost);
+                    footer.querySelector('.phase-material-total').textContent = formatCurrency(phaseTotalMaterialCost);
+                    footer.querySelector('.phase-direct-cost-total').textContent = formatCurrency(phaseTotalDirectCost);
+                    footer.querySelector('.phase-price-total').textContent = formatCurrency(phaseTotalPrice);
+                }
+
+                grandTotalDirectCost += phaseTotalDirectCost;
+                grandTotalPrice += phaseTotalPrice;
+            });
+
+            document.getElementById('summary-subtotal').textContent = `${formatCurrency(grandTotalDirectCost)} SAR`;
+            
+            const totalMarginAmount = grandTotalPrice - grandTotalDirectCost;
+            const contingency = grandTotalDirectCost * 0.10;
+            const insurance = grandTotalDirectCost * 0.015;
+            const pricePreVat = grandTotalPrice + contingency + insurance;
+            const vat = pricePreVat * 0.15;
+            const totalPrice = pricePreVat + vat;
+            const bidBond = totalPrice * 0.01;
+            const performanceBond = totalPrice * 0.05;
+
+            document.getElementById('summary-margin-amount').textContent = `${formatCurrency(totalMarginAmount)} SAR`;
+            document.getElementById('summary-contingency').textContent = `${formatCurrency(contingency)} SAR`;
+            document.getElementById('summary-insurance').textContent = `${formatCurrency(insurance)} SAR`;
+            document.getElementById('summary-pre-vat').textContent = `${formatCurrency(pricePreVat)} SAR`;
+            document.getElementById('summary-vat').textContent = `${formatCurrency(vat)} SAR`;
+            document.getElementById('summary-total').textContent = `${formatCurrency(totalPrice)} SAR`;
+            document.getElementById('summary-bid-bond').textContent = `${formatCurrency(bidBond)} SAR`;
+            document.getElementById('summary-performance-bond').textContent = `${formatCurrency(performanceBond)} SAR`;
+        }
+
+        function createRateCardItem(item) {
+            const card = document.createElement('div');
+            card.className = 'rate-card-item bg-gray-50 p-3 rounded-lg border';
+            card.innerHTML = `
+                <div class="font-semibold text-gray-800">${item.role}</div>
+                <div class="flex items-center mt-2">
+                    <span class="text-sm text-gray-500 mr-2">Cost:</span>
+                    <input type="number" value="${item.cost}" class="table-input rate-cost-input">
+                </div>
+                <div class="flex items-center mt-2">
+                    <span class="text-sm text-gray-500 mr-2">Count:</span>
+                    <input type="number" value="${item.count}" class="table-input rate-count-input w-20">
+                </div>
+            `;
+            return card;
+        }
+
+        function createChildRow(item) {
+            const row = document.createElement('tr');
+            row.className = 'child-row';
+            row.dataset.id = item.id;
+
+            row.innerHTML = `
+                <td class="px-6 py-4"><input type="text" value="${item.desc || ''}" placeholder="Sub-expense description" class="table-input !text-left bg-transparent border-0 p-0"></td>
+                <td class="px-6 py-4"><input type="number" value="${item.effort || 0}" class="table-input effort-input"></td>
+                <td class="px-6 py-4 table-output labor-cost-output">0.00</td>
+                <td class="px-6 py-4"><input type="number" value="${item.material || 0}" class="table-input material-input"></td>
+                <td class="px-6 py-4 table-output direct-cost-output">0.00</td>
+                <td class="px-6 py-4"><input type="number" value="${item.margin || 20}" class="table-input margin-input"></td>
+                <td class="px-6 py-4 table-output price-output text-blue-600">0.00</td>
+                <td class="px-2 py-4 text-center"><button class="action-button remove-row-btn">${trashIconSVG}</button></td>
+            `;
+            return row;
+        }
+
+        function createPhaseTable(phase) {
+            const container = document.createElement('div');
+            container.className = 'phase-container';
+            container.dataset.phaseId = phase.id;
+
+            container.innerHTML = `
+                <div class="phase-header expanded">
+                    <div class="flex items-center">
+                        ${arrowSVG}
+                        <span>${phase.desc}</span>
+                    </div>
+                </div>
+                <div class="phase-content">
+                    <div class="table-container">
+                        <table class="w-full text-sm text-left text-gray-500 wide-table phase-table">
+                             <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                <tr>
+                                    <th class="px-6 py-3" style="min-width: 450px;">Sub-Expense</th>
+                                    <th class="px-6 py-3 text-right" style="min-width: 150px;">Effort (Man-Months)</th>
+                                    <th class="px-6 py-3 text-right" style="min-width: 150px;">Labor Cost (SAR)</th>
+                                    <th class="px-6 py-3 text-right" style="min-width: 150px;">Material Cost (SAR)</th>
+                                    <th class="px-6 py-3 text-right" style="min-width: 150px;">Total Direct Cost</th>
+                                    <th class="px-6 py-3 text-right" style="min-width: 100px;">Margin (%)</th>
+                                    <th class="px-6 py-3 text-right" style="min-width: 150px;">Total Price (SAR)</th>
+                                    <th class="px-2 py-3 text-center" style="min-width: 80px;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="phase-body">
+                                <!-- Child rows will be inserted here -->
+                            </tbody>
+                            <tfoot>
+                                <tr class="phase-footer-row">
+                                    <td class="px-6 py-2 text-right">Phase Totals</td>
+                                    <td class="table-output phase-effort-total">0.00</td>
+                                    <td class="table-output phase-labor-total">0.00</td>
+                                    <td class="table-output phase-material-total">0.00</td>
+                                    <td class="table-output phase-direct-cost-total">0.00</td>
+                                    <td></td>
+                                    <td class="table-output phase-price-total">0.00</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <button class="add-row-btn add-subtask-btn" data-phase-id="${phase.id}">+ Add Sub-Expense</button>
+                </div>
+            `;
+
+            const tbody = container.querySelector('.phase-body');
+            phase.children.forEach(child => {
+                tbody.appendChild(createChildRow(child));
+            });
+
+            return container;
+        }
+
+        function initializeApp() {
+            const rateCardContainer = document.getElementById('rate-card-container');
+            initialRateCard.forEach(item => rateCardContainer.appendChild(createRateCardItem(item)));
+
+            const phasesContainer = document.getElementById('phases-container');
+            initialDeliverables.forEach(phase => {
+                phasesContainer.appendChild(createPhaseTable(phase));
+            });
+            
+            calculateAll();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeApp();
+
+            document.getElementById('phases-container').addEventListener('click', (e) => {
+                if (e.target.closest('.add-subtask-btn')) {
+                    const phaseTable = e.target.closest('.phase-container').querySelector('.phase-body');
+                    const newItem = { id: Date.now(), desc: 'New Sub-Expense', effort: 1, material: 0, margin: 20 };
+                    phaseTable.appendChild(createChildRow(newItem));
+                    calculateAll();
+                }
+
+                if (e.target.closest('.remove-row-btn')) {
+                    e.stopPropagation();
+                    e.target.closest('tr').remove();
+                    calculateAll();
+                }
+                
+                if (e.target.closest('.phase-header')) {
+                    const header = e.target.closest('.phase-header');
+                    header.classList.toggle('expanded');
+                    const content = header.nextElementSibling;
+                    content.classList.toggle('hidden');
+                }
+            });
+
+            document.querySelector('.container').addEventListener('input', (e) => {
+                if (e.target.closest('.table-input, .rate-cost-input, .rate-count-input')) {
+                    calculateAll();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
